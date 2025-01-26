@@ -1,0 +1,30 @@
+# Configurations sensibles
+config/config.php
+
+# Fichiers PHP générés
+*.log
+*.cache
+tmp/
+sessions/
+
+# Dossiers générés automatiquement
+vendor/
+node_modules/
+
+# Extensions inutiles
+.DS_Store
+Thumbs.db
+*.bak
+*.swp
+*.tmp
+*.old
+*.save
+
+# IDE / éditeurs
+.vscode/
+.idea/
+*.sublime-*
+*~
+
+# Logs de débogage
+*.log
