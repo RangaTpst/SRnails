@@ -1,8 +1,16 @@
 <?php
-// Chargement automatique des classes
 spl_autoload_register(function ($class) {
-    $class = str_replace('\\', '/', $class);
-    require_once __DIR__ . '/../' . $class . '.php';
+    $baseDir = realpath(__DIR__ . '/../'); // Résout le chemin absolu vers le dossier racine
+    $classPath = str_replace(['\\', 'App'], ['/', 'app'], $class) . '.php';
+    $filePath = $baseDir . '/' . $classPath; // Construit le chemin complet
+
+    $resolvedPath = realpath($filePath); // Résout le chemin absolu final
+
+    if ($resolvedPath && file_exists($resolvedPath)) {
+        require_once $resolvedPath;
+    } else {
+        die("Fichier introuvable : $filePath<br>");
+    }
 });
 
 use Core\Router;

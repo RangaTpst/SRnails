@@ -1,20 +1,23 @@
 <?php
 namespace Core;
 
-use PDO;
-
 class Database {
-    private static $connection = null;
-
     public static function getConnection() {
-        if (self::$connection === null) {
-            $config = require __DIR__ . '/../config/config.php';
-            self::$connection = new PDO(
-                "mysql:host={$config['host']};dbname={$config['dbname']}",
-                $config['user'],
-                $config['password']
-            );
+        $configPath = realpath(__DIR__ . '/../config/config.php');
+
+        if (!file_exists($configPath)) {
+            die("Le fichier de configuration est introuvable : $configPath");
         }
-        return self::$connection;
+
+        $config = include $configPath;
+
+        try {
+            $dsn = "mysql:host={$config['db_host']};dbname={$config['db_name']};charset=utf8mb4";
+            $pdo = new \PDO($dsn, $config['db_user'], $config['db_password']);
+            $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+            return $pdo;
+        } catch (\PDOException $e) {
+            die("Erreur de connexion à la base de données : " . $e->getMessage());
+        }
     }
 }

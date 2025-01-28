@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Utiliser index.php par défaut pour toutes les requêtes
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [L]
+
+# Spécifier index.php comme fichier par défaut
+DirectoryIndex index.php
