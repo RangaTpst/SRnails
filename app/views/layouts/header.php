@@ -11,20 +11,23 @@ if (isset($_SESSION['user_id'])) {
     <title><?= $title ?? 'SR Nails'; ?></title>
     <link rel="stylesheet" href="/SRnails/public/assets/css/styles.css">
 </head>
+
 <header>
-    <h1>Bienvenue sur SRnails</h1>
-    <nav>
-        <ul>
-            <li><a href="/SRnails/public">Accueil</a></li>
-            <?php if ($user): ?>
-                <li>Bonjour, <?= htmlspecialchars($user['username']) ?>!</li>
-                <?php if ($user['role'] === 'admin'): ?>
-                    <li><a href="/SRnails/public/admin/dashboard">Tableau de bord</a></li>
+    <div class="header-container">
+        <h1>SRnails</h1>
+        <nav>
+            <ul>
+                <li><a href="/SRnails/public">Accueil</a></li>
+                <?php if ($user): ?>
+                    <li>Bonjour, <?= htmlspecialchars($user['username']) ?>!</li>
+                    <?php if ($user['role'] === 'admin'): ?>
+                        <li><a href="/SRnails/public/admin/dashboard">Tableau de bord</a></li>
+                    <?php endif; ?>
+                    <li><a href="/SRnails/public/user/logout">Déconnexion</a></li>
+                <?php else: ?>
+                    <li><a href="/SRnails/public/user/login">Connexion</a></li>
                 <?php endif; ?>
-                <li><a href="/SRnails/public/user/logout">Déconnexion</a></li>
-            <?php else: ?>
-                <li><a href="/SRnails/public/user/login">Connexion</a></li>
-            <?php endif; ?>
-        </ul>
-    </nav>
+            </ul>
+        </nav>
+    </div>
 </header>
