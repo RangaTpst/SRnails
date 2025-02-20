@@ -1,5 +1,9 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+
 $user = null;
 if (isset($_SESSION['user_id'])) {
     $user = \App\Controllers\UserController::getLoggedInUser();
