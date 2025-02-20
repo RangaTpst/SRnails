@@ -20,7 +20,7 @@ if (isset($_SESSION['user_id'])) {
                 <li><a href="/SRnails/public">Accueil</a></li>
                 <?php if ($user): ?>
                     <li>Bonjour, <?= htmlspecialchars($user['username']) ?>!</li>
-                    <?php if ($user['role'] === 'admin'): ?>
+                    <?php if ($user['is_admin'] === 1): ?>
                         <li><a href="/SRnails/public/admin/dashboard">Tableau de bord</a></li>
                     <?php endif; ?>
                     <li><a href="/SRnails/public/user/logout">Déconnexion</a></li>

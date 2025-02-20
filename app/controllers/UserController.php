@@ -25,17 +25,17 @@ class UserController extends BaseController {
                 exit("Nom d'utilisateur ou mot de passe incorrect.");
             }
 
-            // Vérification du mot de passe
-            if (password_verify($password, $user['hashed_password'])) {
+            // Vérification du mot de passe sécurisé
+            if (password_verify($password, $user['password'])) {
                 if (session_status() === PHP_SESSION_NONE) {
                     session_start();
                 }
-                
+
                 $_SESSION['user_id'] = $user['id'];
-                $_SESSION['role'] = $user['role'];
+                $_SESSION['is_admin'] = (int) $user['is_admin']; // Conversion en entier
 
                 // Redirection selon le rôle
-                if ($user['role'] === 'admin') {
+                if ($_SESSION['is_admin'] === 1) {
                     header('Location: /SRnails/public/admin/dashboard');
                 } else {
                     header('Location: /SRnails/public');

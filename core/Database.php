@@ -12,7 +12,7 @@ class Database {
         $config = include $configPath;
 
         try {
-            $dsn = "mysql:host={$config['db_host']};dbname={$config['db_name']};charset=utf8mb4";
+            $dsn = "mysql:host={$config['db_host']};port={$config['db_port']};dbname={$config['db_name']};charset=utf8mb4";
             $pdo = new \PDO($dsn, $config['db_user'], $config['db_password']);
             $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             return $pdo;
