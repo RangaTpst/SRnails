@@ -16,6 +16,8 @@ final class LoginTest extends TestCase {
     private string $hashedPassword;
 
     protected function setUp(): void {
+        echo "🔹 setUp() lancé...\n";
+        
         $this->db = Database::getConnection();
 
         // 🔹 Nettoyage préalable pour éviter les doublons
@@ -33,37 +35,31 @@ final class LoginTest extends TestCase {
 
         $this->assertNotFalse($user, "L'utilisateur n'a pas été trouvé en base.");
         $this->assertArrayHasKey('id', $user, "L'utilisateur inséré doit avoir un ID.");
+        echo "✅ Utilisateur de test créé avec succès.\n";
     }
 
     /**
      * @covers \App\Controllers\UserController::login
      */
     public function testUserCanLogin(): void {
-        // 🔹 Simuler une requête POST pour la connexion
+        
         $_SERVER['REQUEST_METHOD'] = 'POST';
-        $_POST = [
-            'username' => $this->username,
-            'password' => $this->password
-        ];
+        $_POST = ['username' => $this->username, 'password' => $this->password];
 
-        // 🔹 Initialisation manuelle de la session pour PHPUnit
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
+        session_start();
+        var_dump($_SESSION); // 🔹 Affiche l'état de la session avant login
 
-        // 🔹 Exécuter la connexion
-        ob_start();
         $userController = new UserController();
         $result = $userController->login();
-        ob_end_clean();
 
-        // 🔹 Vérifier la connexion réussie
+        // Vérifications PHPUnit
         $this->assertIsString($result, "Le retour de login() doit être une chaîne.");
         $this->assertEquals("Login success", $result, "L'utilisateur doit pouvoir se connecter.");
-
-        // 🔹 Vérifier que la session a bien été créée
+        
+        // 🔹 Vérifier que la session contient bien les infos utilisateur
         $this->assertArrayHasKey('user_id', $_SESSION, "L'ID utilisateur doit être en session après connexion.");
         $this->assertEquals($_SESSION['user_id'], $this->getUserId(), "L'ID utilisateur en session doit correspondre.");
+        
     }
 
     // 🔹 Récupérer l'ID de l'utilisateur de test depuis la base

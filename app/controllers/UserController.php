@@ -15,42 +15,40 @@ class UserController extends BaseController {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
             return "Méthode non autorisée.";
         }
-
+    
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
-
+    
         $username = trim($_POST['username'] ?? '');
         $password = $_POST['password'] ?? '';
-
+    
         $db = Database::getConnection();
         $stmt = $db->prepare("SELECT * FROM users WHERE username = ?");
         $stmt->execute([$username]);
         $user = $stmt->fetch();
-
+    
         if (!$user || !password_verify($password, $user['password'])) {
             $_SESSION['login_attempts'] = ($_SESSION['login_attempts'] ?? 0) + 1;
             return "Nom d'utilisateur ou mot de passe incorrect.";
         }
-
-        // Réinitialisation des tentatives après connexion réussie
+    
         unset($_SESSION['login_attempts']);
-
-        // Sécurisation de la session
         session_regenerate_id(true);
-
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['is_admin'] = (int) $user['is_admin'];
-
-        // ✅ Retourne une réponse en mode test
+        echo"flag 2";
+        // ✅ En mode PHPUnit, on retourne "Login success" au lieu de rediriger
         if (defined('PHPUNIT_RUNNING')) {
+            echo"login success";
             return "Login success";
+        
         }
-
-        // Redirection après connexion
+    
         header('Location: ' . ($_SESSION['is_admin'] ? '/SRnails/public/admin/dashboard' : '/SRnails/public'));
-        exit;
+        exit; // <-- Supprime ça en mode test
     }
+    
 
     // ✅ Déconnexion de l'utilisateur
     public function logout() {
