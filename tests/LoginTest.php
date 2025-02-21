@@ -16,7 +16,6 @@ final class LoginTest extends TestCase {
     private string $hashedPassword;
 
     protected function setUp(): void {
-        echo "🔹 setUp() lancé...\n";
         
         $this->db = Database::getConnection();
 
@@ -35,7 +34,6 @@ final class LoginTest extends TestCase {
 
         $this->assertNotFalse($user, "L'utilisateur n'a pas été trouvé en base.");
         $this->assertArrayHasKey('id', $user, "L'utilisateur inséré doit avoir un ID.");
-        echo "✅ Utilisateur de test créé avec succès.\n";
     }
 
     /**

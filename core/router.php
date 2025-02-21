@@ -19,6 +19,10 @@ class Router {
         } elseif ($uri === 'SRnails/public/user/logout') {
             $controller = new \App\Controllers\UserController();
             $controller->logout();
+        }
+        elseif ($uri === 'SRnails/public/admin/dashboard') {
+            $controller = new \App\Controllers\AdminController();
+            $controller->dashboard();
         } else {
             echo "404 - Page non trouvée. URI : $uri";
         }
