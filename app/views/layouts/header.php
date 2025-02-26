@@ -3,7 +3,6 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-
 $user = null;
 if (isset($_SESSION['user_id'])) {
     $user = \App\Controllers\UserController::getLoggedInUser();
@@ -24,8 +23,9 @@ if (isset($_SESSION['user_id'])) {
                 <li><a href="/SRnails/public">Accueil</a></li>
                 <?php if ($user): ?>
                     <li>Bonjour, <?= htmlspecialchars($user['username']) ?>!</li>
+                    <li><a href="/SRnails/public/user/dashboard">Dashboard</a></li>
                     <?php if ($user['is_admin'] === 1): ?>
-                        <li><a href="/SRnails/public/admin/dashboard">Tableau de bord</a></li>
+                        <li><a href="/SRnails/public/admin/dashboard">Tableau de bord Admin</a></li>
                     <?php endif; ?>
                     <li><a href="/SRnails/public/user/logout">Déconnexion</a></li>
                 <?php else: ?>

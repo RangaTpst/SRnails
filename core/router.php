@@ -24,7 +24,22 @@ class Router {
             $controller = new \App\Controllers\UserController();
             $controller->register();
         
-        // ✅ Route pour le dashboard admin
+        // ✅ Route pour afficher le formulaire de mise à jour
+        } elseif ($uri === 'SRnails/public/user/update') {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $controller = new \App\Controllers\UserController();
+                $controller->update();
+            } else {
+                $controller = new \App\Controllers\UserController();
+                $controller->updateForm();
+            }
+
+        // ✅ Route pour le dashboard utilisateur
+        } elseif ($uri === 'SRnails/public/user/dashboard') {
+            $controller = new \App\Controllers\UserController();
+            $controller->dashboard();
+
+        // ✅ Route pour le dashboard administrateur
         } elseif ($uri === 'SRnails/public/admin/dashboard') {
             $controller = new \App\Controllers\AdminController();
             $controller->dashboard();
