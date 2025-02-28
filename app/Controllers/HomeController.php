@@ -7,6 +7,6 @@ class HomeController extends BaseController {
             'title' => 'Bienvenue sur SR Nails',
             'welcome_message' => 'Découvrez nos produits et services exceptionnels !'
         ];
-        $this->render('home/main', $data);
+        $this->render('/home/main', $data);
     }
 }

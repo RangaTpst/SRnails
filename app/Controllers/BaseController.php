@@ -6,7 +6,7 @@ class BaseController {
         extract($data); // Rend les variables disponibles dans la vue
 
         // Utilisation d'un chemin basé sur la racine du projet
-        $viewPath = dirname(__DIR__) . "/views/$view.php";
+        $viewPath = dirname(__DIR__) . "/Views/$view.php";
 
         // Vérifie si le fichier existe
         if (file_exists($viewPath)) {
