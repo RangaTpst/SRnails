@@ -6,10 +6,10 @@ class Router {
         $uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
 
         if ($uri === '' || $uri === 'SRnails/public') {
-            $controller = new \App\controllers\HomeController();
+            $controller = new \App\Controllers\HomeController();
             $controller->index();
         } elseif ($uri === 'SRnails/public/user/login') {
-            $controller = new \App\controllers\UserController();
+            $controller = new \App\Controllers\UserController();
             $controller->loginForm();
         } elseif ($uri === 'SRnails/public/user/login/process') {
             $controller = new \App\Controllers\UserController();
