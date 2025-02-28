@@ -2,6 +2,7 @@
 namespace App\Controllers;
 
 use App\Models\UserModel;
+use Core\Database;
 
 class UserController extends BaseController {
     private $userModel;
@@ -63,7 +64,9 @@ class UserController extends BaseController {
         $user = $this->userModel->findUserByUsername($username);
 
         if (!$user || !password_verify($password, $user['password'])) {
-            return "Nom d'utilisateur ou mot de passe incorrect.";
+            $_SESSION['login_error'] = "Nom d'utilisateur ou mot de passe incorrect.";
+            header('Location: /SRnails/public/user/login'); // Redirige vers la page de connexion
+            exit;
         }
 
         // 🔹 Sécurisation de la session
