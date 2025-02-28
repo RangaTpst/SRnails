@@ -13,7 +13,7 @@ spl_autoload_register(function ($class) {
     }
 });
 
-use Core\router;
+use core\router;
 
 $router = new Router();
 $router->handleRequest();
