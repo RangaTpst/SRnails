@@ -120,3 +120,17 @@ label {
     text-transform: uppercase;
     font-size: 0.9rem;
 }
+
+/* 📱 RESPONSIVE DESIGN */
+@media (max-width: 992px) {
+    /* Sur mobile/tablette, les sections passent en colonne */
+    .container {
+        flex-direction: column;
+        align-items: stretch; /* Assure un bon alignement */
+    }
+
+    /* Chaque section prend toute la largeur */
+    section {
+        width: 100%;
+    }
+}
