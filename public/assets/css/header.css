@@ -6,7 +6,9 @@ html, body {
     overflow-y: scroll;
     scrollbar-width: none; /* Masquer la scrollbar */
 }
-
+.header{
+    padding: 0;
+}
 /* ✅ Conteneur du header */
 .header-container {
     display: flex;
