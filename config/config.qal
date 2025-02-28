@@ -4,5 +4,5 @@ return [
     'db_port'     => '3306',      // Port MySQL (par défaut 3306)
     'db_name'     => 'srnails',   // Nom de la base de données
     'db_user'     => 'root',      // Nom d'utilisateur MySQL
-    'db_password' => '',          // Mot de passe (laisser vide sous WAMP/XAMPP)
+    'db_password' => 'Tempest',          // Mot de passe (laisser vide sous WAMP/XAMPP)
 ];
