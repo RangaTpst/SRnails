@@ -1,6 +1,8 @@
 <?php 
 include __DIR__ . '/../layouts/header.php';
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 ?>
 
 <link rel="stylesheet" href="/SRnails/public/assets/css/login.css">

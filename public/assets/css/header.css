@@ -1,0 +1,117 @@
+/* ✅ Réinitialisation de base */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+    scrollbar-width: none; /* Masquer la scrollbar */
+}
+
+/* ✅ Conteneur du header */
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Assure que le titre est à gauche et le menu à droite */
+    align-items: center;
+    max-width: 100%;
+    margin: 0 auto;
+    position: relative;
+    padding: 15px 20px;
+    background-color: #f4f4f4;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ Titre du header */
+header h1 {
+    font-size: 1.8rem;
+    color: #222;
+    margin: 0;
+}
+
+/* ✅ Navigation principale */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+/* ✅ Styles des liens */
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #007bff;
+}
+
+/* ✅ Bouton menu burger */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #333;
+    position: absolute;
+    right: 20px; /* Aligné à droite */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* 📱 RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    /* ✅ Affichage du bouton burger uniquement sur mobile */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* ✅ Masquer le menu par défaut */
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background: white;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        width: 200px;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    /* ✅ Affichage du menu lorsqu'il est actif */
+    nav ul.active {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* ✅ Style des liens dans le menu */
+    nav ul li {
+        text-align: center;
+        padding: 12px 0;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: #333;
+        transition: color 0.3s ease;
+        display: block;
+        padding: 10px;
+    }
+
+    nav a:hover {
+        color: #007bff;
+        background: rgba(0, 123, 255, 0.1);
+        border-radius: 5px;
+    }
+}

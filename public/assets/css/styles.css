@@ -1,49 +1,55 @@
-/* Styles généraux */
+/* ✅ Styles généraux */
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow-y: scroll; /* Garde le défilement actif */
+    overflow-y: scroll;
     scrollbar-width: none; /* Masquer la scrollbar */
 }
 
-/* Pour Chrome, Edge et Safari si nécessaire*/
+/* Masquer la scrollbar pour Chrome, Edge et Safari */
 html::-webkit-scrollbar, body::-webkit-scrollbar {
-    display: none; /* Masquer la scrollbar */
+    display: none;
 }
 
-/* Conteneur principal qui prend toute la hauteur */
+/* ✅ Conteneur principal */
 .wrapper {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* 100% de la hauteur de la fenêtre */
+    min-height: 100vh;
 }
 
-/* HEADER : Affichage en ligne avec flexbox */
+/* ✅ HEADER */
 header {
     background-color: #f4f4f4;
     padding: 1rem 2rem;
 }
 
-/* Conteneur du header */
+/* ✅ Conteneur du header */
 .header-container {
     display: flex;
-    justify-content: space-between; /* Sépare le titre et la navigation */
-    align-items: center; /* Centre verticalement */
+    justify-content: space-between;
+    align-items: center;
     max-width: 95%;
-    margin: 0 auto; /* Centrage du header */
+    margin: 0 auto;
 }
 
-/* Enlever les marges par défaut des listes */
+/* ✅ Logo / Titre */
+header h1 {
+    font-size: 1.8rem;
+    color: #222;
+}
+
+/* ✅ Navigation principale */
 nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex; /* Afficher les éléments en ligne */
-    gap: 20px; /* Espacement entre les liens */
+    display: flex;
+    gap: 20px;
 }
 
-/* Styles des liens */
+/* ✅ Styles des liens */
 nav a {
     text-decoration: none;
     color: #333;
@@ -52,25 +58,48 @@ nav a {
 }
 
 nav a:hover {
-    color: #007bff; /* Changement de couleur au survol */
+    color: #007bff;
 }
 
-/* MAIN : Contenu principal qui pousse le footer vers le bas */
-main {
-    flex: 1;
-    padding: 2rem;
-    text-align: center;
+/* ✅ Bouton menu burger (masqué par défaut) */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #333;
 }
 
-/* FOOTER */
-footer {
-    background-color: #f4f4f4;
-    padding: 1rem;
-    text-align: center;
-}
+/* 📱 RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    /* ✅ Ajout d'un bouton burger */
+    .menu-toggle {
+        display: block;
+    }
 
-/* LISTE */
-ul {
-    list-style: none;
-    padding: 0;
+    /* ✅ Masquer le menu par défaut sur mobile */
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #f4f4f4;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        width: 200px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    /* ✅ Afficher le menu lorsqu'il est activé */
+    nav ul.active {
+        display: flex;
+    }
+
+    /* ✅ Centrer les liens */
+    nav ul li {
+        text-align: center;
+        padding: 10px 0;
+    }
 }

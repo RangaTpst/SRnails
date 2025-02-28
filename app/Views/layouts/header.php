@@ -12,12 +12,13 @@ if (isset($_SESSION['user_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?? 'SR Nails'; ?></title>
-    <link rel="stylesheet" href="/SRnails/public/assets/css/styles.css">
+    <link rel="stylesheet" href="/SRnails/public/assets/css/header.css">
 </head>
 
 <header>
     <div class="header-container">
         <h1>SRnails</h1>
+        <button class="menu-toggle">☰</button> <!-- 🔹 Bouton burger -->
         <nav>
             <ul>
                 <li><a href="/SRnails/public">Accueil</a></li>
@@ -35,3 +36,5 @@ if (isset($_SESSION['user_id'])) {
         </nav>
     </div>
 </header>
+<script src="/SRnails/public/assets/js/scripts.js"></script> <!-- 🔹 Inclusion du script -->
+
