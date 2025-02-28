@@ -1,4 +1,6 @@
 <?php include __DIR__ . '/../layouts/header.php'; ?>
+<link rel="stylesheet" href="/SRnails/public/assets/css/admin-dashboard.css">
+
 <div class="wrapper">
     <main>
         <h2><?= $title; ?></h2>

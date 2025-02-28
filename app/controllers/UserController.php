@@ -2,7 +2,6 @@
 namespace App\Controllers;
 
 use App\Models\UserModel;
-use Core\Database;
 
 class UserController extends BaseController {
     private $userModel;
