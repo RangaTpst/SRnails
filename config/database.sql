@@ -16,3 +16,19 @@ CREATE TABLE IF NOT EXISTS users (
 INSERT INTO users (username, email, password, is_admin) 
 VALUES ('admin', 'admin@example.com', '$2y$10$eW5sQ0JsP7p7U.p3BtcJ.Oe/PnIhLE0/XI.AHiYotcKfGfJjB5.zK', 1)
 ON DUPLICATE KEY UPDATE username = username;
+
+CREATE TABLE IF NOT EXISTS articles (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    img VARCHAR(255) DEFAULT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Ajout de quelques articles par défaut
+INSERT INTO articles (title, description, price, img) VALUES
+('Kit Ongles Press-On', 'Kit de faux ongles de haute qualité.', 15.99, 'images/kit-ongles.jpg'),
+('Vernis Semi-Permanent', 'Vernis longue tenue pour ongles.', 9.99, 'images/vernis-semi.jpg'),
+('Lime à Ongles Professionnelle', 'Lime à ongles pour une finition parfaite.', 3.50, 'images/lime-ongles.jpg')
+ON DUPLICATE KEY UPDATE title = title;
