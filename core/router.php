@@ -8,12 +8,12 @@ class Router {
 
         // ✅ Route vers la page d'accueil
         if ($uri === '' || $uri === 'SRnails/public') {
-            $controller = new \App\controllers\HomeController();
+            $controller = new \App\Controllers\HomeController();
             $controller->index();
 
         // ✅ Route pour afficher le formulaire de connexion
         } elseif ($uri === 'SRnails/public/user/login') {
-            $controller = new \App\controllers\UserController();
+            $controller = new \App\Controllers\UserController();
             $controller->loginForm();
 
         // ✅ Route pour traiter la connexion de l'utilisateur
