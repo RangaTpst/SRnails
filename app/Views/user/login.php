@@ -1,4 +1,5 @@
 <?php 
+include __DIR__ . '/../layouts/footer.php';
 session_start();
 ?>
 
