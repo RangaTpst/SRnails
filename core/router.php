@@ -1,7 +1,24 @@
 <?php
 namespace Core;
 
+/**
+ * Classe Router
+ *
+ * La classe Router est responsable du traitement des requêtes HTTP entrantes et de la gestion de l'acheminement des
+ * requêtes vers les contrôleurs appropriés selon l'URL demandée. Elle analyse l'URI, détermine la route et
+ * appelle la méthode correspondante dans le contrôleur approprié.
+ *
+ * @package Core
+ */
 class Router {
+    /**
+     * Gère la requête en analysant l'URL et en appelant le contrôleur et la méthode appropriés.
+     *
+     * Cette méthode analyse l'URI de la requête et dirige la demande vers le contrôleur et l'action appropriés.
+     * Si l'URI ne correspond à aucune des routes définies, un message d'erreur 404 est renvoyé.
+     * 
+     * @return void
+     */
     public function handleRequest() {
         // Récupération de l'URI demandée
         $uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');

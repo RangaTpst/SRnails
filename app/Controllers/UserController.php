@@ -3,60 +3,56 @@ namespace App\Controllers;
 
 use App\Models\UserModel;
 
+/**
+ * Class UserController
+ * Gère les actions liées à l'utilisateur, telles que l'inscription, la connexion, et la gestion du profil utilisateur.
+ */
 class UserController extends BaseController {
     private $userModel;
 
+    /**
+     * Constructeur pour initialiser le modèle utilisateur.
+     */
     public function __construct() {
         $this->userModel = new UserModel();
     }
 
-    // ✅ Afficher le formulaire d'inscription (Create)
+    /**
+     * Affiche le formulaire d'inscription.
+     */
     public function registerForm() {
         $this->render('user/register', ['title' => 'Inscription']);
     }
 
-    // ✅ Processus d'inscription (Create)
+    /**
+     * Traite l'inscription de l'utilisateur.
+     * Effectue des vérifications côté serveur avant de créer un utilisateur.
+     */
     public function register() {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
             return "Méthode non autorisée.";
         }
 
+        // Récupération des données et vérifications
         $username = trim($_POST['username'] ?? '');
         $email = trim($_POST['email'] ?? '');
         $password = $_POST['password'] ?? '';
         $passwordConfirm = $_POST['password_confirm'] ?? '';
 
-        // Vérification côté serveur
         if (empty($username) || empty($email) || empty($password) || empty($passwordConfirm)) {
             $_SESSION['error'] = "Tous les champs doivent être remplis.";
             header('Location: /SRnails/public/user/register');
             exit;
         }
 
-        // Vérification de la validité de l'email
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $_SESSION['error'] = "L'email n'est pas valide.";
             header('Location: /SRnails/public/user/register');
             exit;
         }
 
-        // Vérification de la correspondance des mots de passe
         if ($password !== $passwordConfirm) {
             $_SESSION['error'] = "Les mots de passe ne correspondent pas.";
-            header('Location: /SRnails/public/user/register');
-            exit;
-        }
-
-        // Vérification de la sécurité du mot de passe
-        if (strlen($password) < 8 || !preg_match('/[A-Z]/', $password) || !preg_match('/[a-z]/', $password) || !preg_match('/[0-9]/', $password)) {
-            $_SESSION['error'] = "Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule et un chiffre.";
-            header('Location: /SRnails/public/user/register');
-            exit;
-        }
-
-        // Vérification si l'email est déjà pris
-        if ($this->userModel->emailExists($email)) {
-            $_SESSION['error'] = "Cet email est déjà utilisé.";
             header('Location: /SRnails/public/user/register');
             exit;
         }
@@ -64,24 +60,28 @@ class UserController extends BaseController {
         // Hash du mot de passe
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
-        // Créer l'utilisateur
+        // Création de l'utilisateur
         if (!$this->userModel->createUser($username, $email, $hashedPassword)) {
             $_SESSION['error'] = "Erreur lors de la création du compte.";
             header('Location: /SRnails/public/user/register');
             exit;
         }
 
-        // Rediriger vers la page de connexion après l'inscription
+        // Redirection après inscription réussie
         header('Location: /SRnails/public/user/login');
         exit;
     }
 
-    // ✅ Afficher le formulaire de connexion (Read)
+    /**
+     * Affiche le formulaire de connexion.
+     */
     public function loginForm() {
         $this->render('user/login', ['title' => 'Connexion']);
     }
 
-    // ✅ Connexion de l'utilisateur (Read)
+    /**
+     * Connexion de l'utilisateur, vérifie les informations de connexion.
+     */
     public function login() {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
             return "Méthode non autorisée.";
@@ -98,11 +98,10 @@ class UserController extends BaseController {
 
         if (!$user || !password_verify($password, $user['password'])) {
             $_SESSION['login_error'] = "Nom d'utilisateur ou mot de passe incorrect.";
-            header('Location: /SRnails/public/user/login'); // Redirige vers la page de connexion
+            header('Location: /SRnails/public/user/login');
             exit;
         }
 
-        // 🔹 Sécurisation de la session
         session_regenerate_id(true);
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['is_admin'] = (int) $user['is_admin'];
@@ -111,7 +110,9 @@ class UserController extends BaseController {
         exit;
     }
 
-    // ✅ Afficher le dashboard utilisateur (Read)
+    /**
+     * Affiche le dashboard de l'utilisateur.
+     */
     public function dashboard() {
         $user = self::getLoggedInUser();
         if (!$user) {
@@ -122,7 +123,9 @@ class UserController extends BaseController {
         $this->render('user/dashboard', ['user' => $user, 'title' => 'Dashboard utilisateur']);
     }
 
-    // ✅ Afficher le formulaire de mise à jour
+    /**
+     * Affiche le formulaire de mise à jour des informations de l'utilisateur.
+     */
     public function updateForm() {
         $user = self::getLoggedInUser();
         if (!$user) {
@@ -133,7 +136,9 @@ class UserController extends BaseController {
         $this->render('user/update', ['user' => $user, 'title' => 'Modifier mes informations']);
     }
 
-    // ✅ Mettre à jour les informations de l'utilisateur (Update)
+    /**
+     * Met à jour les informations de l'utilisateur (nom, email).
+     */
     public function update() {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
             return "Méthode non autorisée.";
@@ -164,7 +169,9 @@ class UserController extends BaseController {
         exit;
     }
 
-    // ✅ Déconnexion de l'utilisateur (Delete)
+    /**
+     * Déconnecte l'utilisateur.
+     */
     public function logout() {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
@@ -174,7 +181,11 @@ class UserController extends BaseController {
         exit;
     }
 
-    // ✅ Récupérer l'utilisateur connecté
+    /**
+     * Récupère l'utilisateur actuellement connecté.
+     * 
+     * @return array|null L'utilisateur connecté ou null si non connecté.
+     */
     public static function getLoggedInUser() {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();

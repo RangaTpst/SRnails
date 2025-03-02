@@ -1,3 +1,14 @@
+-- 
+-- Fichier de création de la base de données et des tables pour le projet SRNails
+-- Ce fichier contient les instructions nécessaires pour créer la base de données 
+-- et les tables requises pour l'application SR Nails. Il initialise également
+-- des valeurs par défaut pour les utilisateurs et les articles.
+--
+-- @package    SRNails
+-- @subpackage Database
+-- @version    1.0
+--
+
 -- Création de la base de données (si elle n'existe pas déjà)
 CREATE DATABASE IF NOT EXISTS srnails_db DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE srnails_db;
@@ -5,25 +16,27 @@ USE srnails_db;
 -- Création de la table users
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL UNIQUE,
-    email VARCHAR(100) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
-    is_admin TINYINT(1) NOT NULL DEFAULT 0,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    username VARCHAR(50) NOT NULL UNIQUE,   -- Nom d'utilisateur unique
+    email VARCHAR(100) NOT NULL UNIQUE,      -- Adresse e-mail unique
+    password VARCHAR(255) NOT NULL,          -- Mot de passe haché
+    is_admin TINYINT(1) NOT NULL DEFAULT 0,  -- Indicateur si l'utilisateur est admin (0 = non, 1 = oui)
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- Date et heure de la création du compte
 );
 
 -- Ajout d'un utilisateur admin par défaut (mot de passe : "admin123")
+-- Le mot de passe est stocké sous forme de hash (bcrypt)
 INSERT INTO users (username, email, password, is_admin) 
 VALUES ('admin', 'admin@example.com', '$2y$10$eW5sQ0JsP7p7U.p3BtcJ.Oe/PnIhLE0/XI.AHiYotcKfGfJjB5.zK', 1)
 ON DUPLICATE KEY UPDATE username = username;
 
+-- Création de la table articles
 CREATE TABLE IF NOT EXISTS articles (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    description TEXT NOT NULL,
-    price DECIMAL(10,2) NOT NULL,
-    img VARCHAR(255) DEFAULT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    title VARCHAR(255) NOT NULL,              -- Titre de l'article
+    description TEXT NOT NULL,                -- Description de l'article
+    price DECIMAL(10,2) NOT NULL,             -- Prix de l'article
+    img VARCHAR(255) DEFAULT NULL,            -- Chemin vers l'image de l'article
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- Date et heure de création de l'article
 );
 
 -- Ajout de quelques articles par défaut

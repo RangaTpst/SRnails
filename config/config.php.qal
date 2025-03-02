@@ -1,0 +1,45 @@
+<?php
+/**
+ * Fichier de configuration pour la connexion à la base de données.
+ *
+ * Ce fichier contient les paramètres nécessaires pour se connecter à la base de données
+ * dans le cadre du projet SR Nails. Il inclut l'hôte, le port, le nom de la base de données,
+ * ainsi que les informations d'identification pour l'accès à la base de données MySQL.
+ *
+ * @package    SRNails
+ * @subpackage Config
+ * @version    1.0
+ */
+
+// Retourne un tableau associatif avec les paramètres de connexion à la base de données
+return [
+    /**
+     * Adresse du serveur MySQL (local).
+     * Exemple : '127.0.0.1' pour un serveur local.
+     */
+    'db_host'     => '127.0.0.1', // Adresse du serveur MySQL (local)
+
+    /**
+     * Port MySQL (par défaut 3306).
+     * Cette valeur est utilisée pour la connexion au serveur MySQL.
+     */
+    'db_port'     => '3306',      // Port MySQL (par défaut 3306)
+
+    /**
+     * Nom de la base de données utilisée par l'application.
+     * Exemple : 'srnails_db' pour ce projet.
+     */
+    'db_name'     => 'srnails_db',   // Nom de la base de données
+
+    /**
+     * Nom d'utilisateur pour se connecter à MySQL.
+     * Exemple : 'root' par défaut sur de nombreuses installations locales.
+     */
+    'db_user'     => 'root',      // Nom d'utilisateur MySQL
+
+    /**
+     * Mot de passe pour l'utilisateur MySQL.
+     * Laisser vide sous WAMP/XAMPP par défaut.
+     */
+    'db_password' => 'Tempest',   // Mot de passe (laisser vide sous WAMP/XAMPP)
+];

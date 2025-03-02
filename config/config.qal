@@ -1,8 +1,0 @@
-<?php
-return [
-    'db_host'     => '127.0.0.1', // Adresse du serveur MySQL (local)
-    'db_port'     => '3306',      // Port MySQL (par défaut 3306)
-    'db_name'     => 'srnails_db',   // Nom de la base de données
-    'db_user'     => 'root',      // Nom d'utilisateur MySQL
-    'db_password' => 'Tempest',          // Mot de passe (laisser vide sous WAMP/XAMPP)
-]

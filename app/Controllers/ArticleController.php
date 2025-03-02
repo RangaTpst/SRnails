@@ -5,14 +5,23 @@ use App\Models\ArticleModel;
 use App\Controllers\BaseController;
 use App\Controllers\UserController;
 
+/**
+ * Class ArticleController
+ * Gère les actions liées aux articles pour l'administrateur, telles que la création, la mise à jour, la suppression, et l'affichage des articles.
+ */
 class ArticleController extends BaseController {
     private $articleModel;
 
+    /**
+     * Constructeur pour initialiser le modèle des articles.
+     */
     public function __construct() {
         $this->articleModel = new ArticleModel();
     }
 
-    // Affichage du tableau de bord admin avec les articles et utilisateurs
+    /**
+     * Affiche le tableau de bord de l'administrateur avec les articles et les utilisateurs.
+     */
     public function adminDashboard() {
         if (!$this->isAdmin()) {
             header('Location: /SRnails/public/user/login');
@@ -26,7 +35,11 @@ class ArticleController extends BaseController {
         $this->render('admin/dashboard', ['articles' => $articles, 'users' => $users, 'title' => 'Tableau de bord admin']);
     }
 
-    // Création d'un nouvel article
+    /**
+     * Crée un nouvel article.
+     * 
+     * @throws Exception Si un champ obligatoire est vide.
+     */
     public function create() {
         if (!$this->isAdmin()) {
             header('Location: /SRnails/public/user/login');
@@ -48,7 +61,11 @@ class ArticleController extends BaseController {
         exit;
     }
 
-    // Mise à jour d'un article existant
+    /**
+     * Met à jour un article existant.
+     * 
+     * @param int $id L'ID de l'article à mettre à jour.
+     */
     public function update($id) {
         if (!$this->isAdmin()) {
             header('Location: /SRnails/public/user/login');
@@ -93,7 +110,11 @@ class ArticleController extends BaseController {
         ]);
     }
 
-    // Suppression d'un article
+    /**
+     * Supprime un article.
+     * 
+     * @param int $id L'ID de l'article à supprimer.
+     */
     public function delete($id) {
         if (!$this->isAdmin()) {
             header('Location: /SRnails/public/user/login');
@@ -105,7 +126,11 @@ class ArticleController extends BaseController {
         exit;
     }
 
-    // Vérifier si l'utilisateur est administrateur
+    /**
+     * Vérifie si l'utilisateur connecté est un administrateur.
+     * 
+     * @return bool Retourne true si l'utilisateur est un admin, sinon false.
+     */
     private function isAdmin() {
         $user = UserController::getLoggedInUser();
         return $user && isset($user['is_admin']) && $user['is_admin'] == 1;
