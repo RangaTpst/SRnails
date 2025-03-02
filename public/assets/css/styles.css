@@ -4,7 +4,19 @@ html, body {
     margin: 0;
     padding: 0;
     overflow-y: scroll;
-    scrollbar-width: none; /* Masquer la scrollbar */
+    scrollbar-width: none;
+    font-family: 'Arial', sans-serif;
+    background-image: url('/SRnails/public/assets/img/background_body.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #333;
+    line-height: 1.7;
+}
+
+body {
+    padding-top: 70px; /* Décale le contenu pour le header fixe */
 }
 
 /* Masquer la scrollbar pour Chrome, Edge et Safari */
@@ -19,37 +31,63 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
     min-height: 100vh;
 }
 
+/* ✅ Sections de contenu (hors carrousel) */
+main section {
+    max-width: 1200px;
+    width: 90%;
+    margin: 40px auto;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
 
+/* ✅ Menu burger */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #555;
+}
 
-/* 📱 RESPONSIVE DESIGN */
+/* ✅ Responsive */
 @media (max-width: 768px) {
-    /* ✅ Ajout d'un bouton burger */
     .menu-toggle {
         display: block;
     }
 
-    /* ✅ Masquer le menu par défaut sur mobile */
     nav ul {
         display: none;
         flex-direction: column;
-        background-color: #f4f4f4;
+        background-color: rgba(255, 255, 255, 0.95);
         position: absolute;
-        top: 60px;
+        top: 70px;
         right: 20px;
         width: 200px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        padding: 10px;
-        border-radius: 8px;
+        padding: 15px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
 
-    /* ✅ Afficher le menu lorsqu'il est activé */
     nav ul.active {
         display: flex;
     }
 
-    /* ✅ Centrer les liens */
     nav ul li {
         text-align: center;
-        padding: 10px 0;
+        padding: 12px 0;
+    }
+
+    nav a {
+        padding: 10px;
+        font-size: 1rem;
+        border-radius: 8px;
+    }
+
+    nav a:hover {
+        background-color: #6b8e72;
+        color: white;
     }
 }

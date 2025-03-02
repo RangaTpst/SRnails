@@ -1,3 +1,10 @@
+/****** RESET DE BASE ******/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
@@ -5,44 +12,49 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    padding-top: 70px; /* Compense la hauteur du header fixe */
 }
 
+/****** CONTENU PRINCIPAL ******/
 main {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
+    width: 100%;  /* Ajouté pour s'assurer que la largeur est bien 100% */
     box-sizing: border-box;
 }
 
-.container {
-    max-width: 350px;
+/****** FORMULAIRE D'INSCRIPTION ******/
+form {
     width: 100%;
-    padding: 30px 40px;
-    background-color: #fff;
+    max-width: 450px; /* Réduit la largeur du formulaire */
+    background-color: white;
+    padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
 }
 
+/* Title */
 h2 {
     text-align: center;
     margin-bottom: 20px;
     color: #333;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-}
-
+/* Les labels */
 label {
-    margin-bottom: 5px;
     font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
 }
 
-input[type="text"], input[type="password"] {
+/* Les inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -51,6 +63,7 @@ input[type="text"], input[type="password"] {
     box-sizing: border-box;
 }
 
+/* Bouton de soumission */
 button {
     background-color: #007bff;
     color: white;
@@ -60,12 +73,14 @@ button {
     transition: background-color 0.3s;
     border-radius: 5px;
     font-size: 1rem;
+    width: 100%;  /* Le bouton prend toute la largeur */
 }
 
 button:hover {
     background-color: #0056b3;
 }
 
+/* Lien pour se connecter */
 a {
     text-align: center;
     display: block;
@@ -76,4 +91,15 @@ a {
 
 a:hover {
     color: #0056b3;
+}
+
+/* Erreur */
+.error-message {
+    color: red;
+    font-size: 14px;
+    padding: 10px;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    margin-bottom: 15px;
 }

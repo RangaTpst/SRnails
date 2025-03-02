@@ -42,7 +42,7 @@
                 <thead>
                     <tr>
                         <th>Titre</th>
-                        <th>Contenu</th>
+                        <th>Description</th>
                         <th>Image</th>
                         <th>Prix</th>
                         <th>Actions</th>
@@ -51,16 +51,15 @@
                 <tbody>
                     <?php foreach ($articles as $article): ?>
                         <tr>
-                            <form method="post" action="/SRnails/public/article/<?= $article['id'] ?? '' ?>/update">
-                                <td><input type="text" name="title" value="<?= htmlspecialchars($article['title'] ?? '') ?>" required></td>
-                                <td><textarea name="content"><?= htmlspecialchars($article['content'] ?? '') ?></textarea></td>
-                                <td><input type="text" name="image" value="<?= htmlspecialchars($article['image'] ?? '') ?>"></td>
-                                <td><input type="number" step="0.01" name="price" value="<?= htmlspecialchars($article['price'] ?? '') ?>" required></td>
-                                <td>
-                                    <button type="submit">Modifier</button>
-                                    <a href="/SRnails/public/article/<?= $article['id'] ?? '' ?>/delete" onclick="return confirm('Supprimer cet article ?')">Supprimer</a>
-                                </td>
-                            </form>
+                            <td><?= htmlspecialchars($article['title']) ?></td>
+                            <td><?= htmlspecialchars($article['description']) ?></td>
+                            <td><img src="<?= htmlspecialchars($article['img']) ?>" alt="Image de l'article" style="width: 50px; height: 50px;"></td>
+                            <td><?= htmlspecialchars($article['price']) ?> €</td>
+                            <td>
+                                <!-- Lien vers la page de modification de l'article -->
+                                <a href="/SRnails/public/article/<?= $article['id'] ?>/update">Modifier</a> |
+                                <a href="/SRnails/public/article/<?= $article['id'] ?>/delete" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article ?')">Supprimer</a>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -75,11 +74,11 @@
             <label for="title">Titre :</label>
             <input type="text" id="title" name="title" required>
 
-            <label for="content">Contenu :</label>
-            <textarea id="content" name="content" required></textarea>
+            <label for="content">Description :</label>
+            <textarea id="content" name="description" required></textarea>
 
             <label for="image">Image (URL) :</label>
-            <input type="text" id="image" name="image">
+            <input type="text" id="image" name="img">
 
             <label for="price">Prix (€) :</label>
             <input type="number" step="0.01" id="price" name="price" required>
