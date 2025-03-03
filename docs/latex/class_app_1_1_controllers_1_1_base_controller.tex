@@ -1,0 +1,47 @@
+\doxysection{App\textbackslash{}Controllers\textbackslash{}Base\+Controller Class Reference}
+\hypertarget{class_app_1_1_controllers_1_1_base_controller}{}\label{class_app_1_1_controllers_1_1_base_controller}\index{App\textbackslash{}Controllers\textbackslash{}BaseController@{App\textbackslash{}Controllers\textbackslash{}BaseController}}
+
+
+Inheritance diagram for App\textbackslash{}Controllers\textbackslash{}Base\+Controller\+:
+% FIG 0
+
+
+Collaboration diagram for App\textbackslash{}Controllers\textbackslash{}Base\+Controller\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_app_1_1_controllers_1_1_base_controller_a96e8213dc1fca07e08c45a80266e8ac2}{render}} (\$view, \$data=\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_app_1_1_controllers_1_1_base_controller_a96e8213dc1fca07e08c45a80266e8ac2}\index{App\textbackslash{}Controllers\textbackslash{}BaseController@{App\textbackslash{}Controllers\textbackslash{}BaseController}!render@{render}}
+\index{render@{render}!App\textbackslash{}Controllers\textbackslash{}BaseController@{App\textbackslash{}Controllers\textbackslash{}BaseController}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_app_1_1_controllers_1_1_base_controller_a96e8213dc1fca07e08c45a80266e8ac2} 
+App\textbackslash{}\+Controllers\textbackslash{}\+Base\+Controller\+::render (\begin{DoxyParamCaption}\item[{}]{\$view}{, }\item[{}]{\$data}{ = {\ttfamily \mbox{[}\mbox{]}}}\end{DoxyParamCaption})}
+
+Rendre une vue avec les données fournies.
+
+Cette méthode prend le nom de la vue et les données associées, les extrait en variables et inclut le fichier de la vue correspondant. Si le fichier de la vue n\textquotesingle{}existe pas, elle affiche un message d\textquotesingle{}erreur.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$view} & Le nom de la vue à rendre (par exemple "{}dashboard"{}). \\
+\hline
+array & {\em \$data} & Les données à transmettre à la vue. Par défaut, c\textquotesingle{}est un tableau vide.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & Si le fichier de la vue n\textquotesingle{}existe pas. \\
+\hline
+\end{DoxyExceptions}
+Here is the caller graph for this function\+:
+% FIG 2
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+app/\+Controllers/\mbox{\hyperlink{_base_controller_8php}{Base\+Controller.\+php}}\end{DoxyCompactItemize}

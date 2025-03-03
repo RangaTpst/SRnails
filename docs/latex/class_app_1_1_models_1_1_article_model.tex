@@ -1,0 +1,144 @@
+\doxysection{App\textbackslash{}Models\textbackslash{}Article\+Model Class Reference}
+\hypertarget{class_app_1_1_models_1_1_article_model}{}\label{class_app_1_1_models_1_1_article_model}\index{App\textbackslash{}Models\textbackslash{}ArticleModel@{App\textbackslash{}Models\textbackslash{}ArticleModel}}
+
+
+Collaboration diagram for App\textbackslash{}Models\textbackslash{}Article\+Model\+:
+% FIG 0
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_article_model_ad87f5b85ee29e0f7c5f45668d1212a9d}{\+\_\+\+\_\+construct}} ()
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_article_model_abee57f2696780ea573502f1cd64904cb}{get\+All\+Articles}} ()
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_article_model_a00fd01f939534863340761492201c734}{get\+Article\+By\+Id}} (\$id)
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_article_model_a03ebbfef2fb2fde28262f3a6f892b0d9}{create\+Article}} (\$title, \$description, \$image, \$price)
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_article_model_a3326f853aecb47cbf660bdd161eda96e}{update\+Article}} (\$id, \$title, \$description, \$image, \$price)
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_article_model_ab2fab6719d8b4c24b0a264e2f86dcd30}{delete\+Article}} (\$id)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_article_model_afada9945d3f6c68b5742efd24a41194d}{\$db}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class Article\+Model Gère les opérations CRUD (Create, Read, Update, Delete) pour les articles dans la base de données. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_app_1_1_models_1_1_article_model_ad87f5b85ee29e0f7c5f45668d1212a9d}\index{App\textbackslash{}Models\textbackslash{}ArticleModel@{App\textbackslash{}Models\textbackslash{}ArticleModel}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!App\textbackslash{}Models\textbackslash{}ArticleModel@{App\textbackslash{}Models\textbackslash{}ArticleModel}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \label{class_app_1_1_models_1_1_article_model_ad87f5b85ee29e0f7c5f45668d1212a9d} 
+App\textbackslash{}\+Models\textbackslash{}\+Article\+Model\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Article\+Model constructor. Initialise la connexion à la base de données. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_app_1_1_models_1_1_article_model_a03ebbfef2fb2fde28262f3a6f892b0d9}\index{App\textbackslash{}Models\textbackslash{}ArticleModel@{App\textbackslash{}Models\textbackslash{}ArticleModel}!createArticle@{createArticle}}
+\index{createArticle@{createArticle}!App\textbackslash{}Models\textbackslash{}ArticleModel@{App\textbackslash{}Models\textbackslash{}ArticleModel}}
+\doxysubsubsection{\texorpdfstring{createArticle()}{createArticle()}}
+{\footnotesize\ttfamily \label{class_app_1_1_models_1_1_article_model_a03ebbfef2fb2fde28262f3a6f892b0d9} 
+App\textbackslash{}\+Models\textbackslash{}\+Article\+Model\+::create\+Article (\begin{DoxyParamCaption}\item[{}]{\$title}{, }\item[{}]{\$description}{, }\item[{}]{\$image}{, }\item[{}]{\$price}{}\end{DoxyParamCaption})}
+
+Crée un nouvel article.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$title} & Le titre de l\textquotesingle{}article. \\
+\hline
+string & {\em \$description} & La description de l\textquotesingle{}article. \\
+\hline
+string & {\em \$image} & L\textquotesingle{}URL de l\textquotesingle{}image de l\textquotesingle{}article. \\
+\hline
+float & {\em \$price} & Le prix de l\textquotesingle{}article. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool True si l\textquotesingle{}article a été créé avec succès, false sinon. 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_models_1_1_article_model_ab2fab6719d8b4c24b0a264e2f86dcd30}\index{App\textbackslash{}Models\textbackslash{}ArticleModel@{App\textbackslash{}Models\textbackslash{}ArticleModel}!deleteArticle@{deleteArticle}}
+\index{deleteArticle@{deleteArticle}!App\textbackslash{}Models\textbackslash{}ArticleModel@{App\textbackslash{}Models\textbackslash{}ArticleModel}}
+\doxysubsubsection{\texorpdfstring{deleteArticle()}{deleteArticle()}}
+{\footnotesize\ttfamily \label{class_app_1_1_models_1_1_article_model_ab2fab6719d8b4c24b0a264e2f86dcd30} 
+App\textbackslash{}\+Models\textbackslash{}\+Article\+Model\+::delete\+Article (\begin{DoxyParamCaption}\item[{}]{\$id}{}\end{DoxyParamCaption})}
+
+Supprime un article.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$id} & L\textquotesingle{}ID de l\textquotesingle{}article à supprimer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool True si l\textquotesingle{}article a été supprimé avec succès, false sinon. 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_models_1_1_article_model_abee57f2696780ea573502f1cd64904cb}\index{App\textbackslash{}Models\textbackslash{}ArticleModel@{App\textbackslash{}Models\textbackslash{}ArticleModel}!getAllArticles@{getAllArticles}}
+\index{getAllArticles@{getAllArticles}!App\textbackslash{}Models\textbackslash{}ArticleModel@{App\textbackslash{}Models\textbackslash{}ArticleModel}}
+\doxysubsubsection{\texorpdfstring{getAllArticles()}{getAllArticles()}}
+{\footnotesize\ttfamily \label{class_app_1_1_models_1_1_article_model_abee57f2696780ea573502f1cd64904cb} 
+App\textbackslash{}\+Models\textbackslash{}\+Article\+Model\+::get\+All\+Articles (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Récupère tous les articles.
+
+\begin{DoxyReturn}{Returns}
+array Les articles présents dans la base de données. 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_models_1_1_article_model_a00fd01f939534863340761492201c734}\index{App\textbackslash{}Models\textbackslash{}ArticleModel@{App\textbackslash{}Models\textbackslash{}ArticleModel}!getArticleById@{getArticleById}}
+\index{getArticleById@{getArticleById}!App\textbackslash{}Models\textbackslash{}ArticleModel@{App\textbackslash{}Models\textbackslash{}ArticleModel}}
+\doxysubsubsection{\texorpdfstring{getArticleById()}{getArticleById()}}
+{\footnotesize\ttfamily \label{class_app_1_1_models_1_1_article_model_a00fd01f939534863340761492201c734} 
+App\textbackslash{}\+Models\textbackslash{}\+Article\+Model\+::get\+Article\+By\+Id (\begin{DoxyParamCaption}\item[{}]{\$id}{}\end{DoxyParamCaption})}
+
+Récupère un article par son ID.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$id} & L\textquotesingle{}ID de l\textquotesingle{}article à récupérer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array\texorpdfstring{$\vert$}{|}false Les données de l\textquotesingle{}article ou false si l\textquotesingle{}article n\textquotesingle{}existe pas. 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_models_1_1_article_model_a3326f853aecb47cbf660bdd161eda96e}\index{App\textbackslash{}Models\textbackslash{}ArticleModel@{App\textbackslash{}Models\textbackslash{}ArticleModel}!updateArticle@{updateArticle}}
+\index{updateArticle@{updateArticle}!App\textbackslash{}Models\textbackslash{}ArticleModel@{App\textbackslash{}Models\textbackslash{}ArticleModel}}
+\doxysubsubsection{\texorpdfstring{updateArticle()}{updateArticle()}}
+{\footnotesize\ttfamily \label{class_app_1_1_models_1_1_article_model_a3326f853aecb47cbf660bdd161eda96e} 
+App\textbackslash{}\+Models\textbackslash{}\+Article\+Model\+::update\+Article (\begin{DoxyParamCaption}\item[{}]{\$id}{, }\item[{}]{\$title}{, }\item[{}]{\$description}{, }\item[{}]{\$image}{, }\item[{}]{\$price}{}\end{DoxyParamCaption})}
+
+Met à jour un article existant.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$id} & L\textquotesingle{}ID de l\textquotesingle{}article à mettre à jour. \\
+\hline
+string & {\em \$title} & Le titre de l\textquotesingle{}article. \\
+\hline
+string & {\em \$description} & La description de l\textquotesingle{}article. \\
+\hline
+string & {\em \$image} & L\textquotesingle{}URL de l\textquotesingle{}image de l\textquotesingle{}article. \\
+\hline
+float & {\em \$price} & Le prix de l\textquotesingle{}article. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool True si l\textquotesingle{}article a été mis à jour avec succès, false sinon. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_app_1_1_models_1_1_article_model_afada9945d3f6c68b5742efd24a41194d}\index{App\textbackslash{}Models\textbackslash{}ArticleModel@{App\textbackslash{}Models\textbackslash{}ArticleModel}!\$db@{\$db}}
+\index{\$db@{\$db}!App\textbackslash{}Models\textbackslash{}ArticleModel@{App\textbackslash{}Models\textbackslash{}ArticleModel}}
+\doxysubsubsection{\texorpdfstring{\$db}{\$db}}
+{\footnotesize\ttfamily \label{class_app_1_1_models_1_1_article_model_afada9945d3f6c68b5742efd24a41194d} 
+App\textbackslash{}\+Models\textbackslash{}\+Article\+Model\+::\$db\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+app/\+Models/\mbox{\hyperlink{_article_model_8php}{Article\+Model.\+php}}\end{DoxyCompactItemize}

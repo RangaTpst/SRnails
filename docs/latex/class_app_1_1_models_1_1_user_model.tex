@@ -1,0 +1,218 @@
+\doxysection{App\textbackslash{}Models\textbackslash{}User\+Model Class Reference}
+\hypertarget{class_app_1_1_models_1_1_user_model}{}\label{class_app_1_1_models_1_1_user_model}\index{App\textbackslash{}Models\textbackslash{}UserModel@{App\textbackslash{}Models\textbackslash{}UserModel}}
+
+
+Collaboration diagram for App\textbackslash{}Models\textbackslash{}User\+Model\+:
+% FIG 0
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_user_model_aec3d769fdf7b50a45c61d47b08d70cef}{\+\_\+\+\_\+construct}} ()
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_user_model_ae77e651379b8d1484be5fd4917b561b9}{find\+User\+By\+Username}} (\$username)
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_user_model_aa883dc13583940734185c397da0dd93e}{get\+User\+By\+Id}} (\$id)
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_user_model_a19894ef1e211b2acc3c3705ee1c4d8b2}{is\+Admin}} (\$id)
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_user_model_a51753f74333a1390cf957c9d905fe930}{get\+All\+Users}} ()
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_user_model_aae8f18f6cd79ba34bc0723537305a8e0}{create\+User}} (\$username, \$email, \$password, \$is\+\_\+admin=0)
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_user_model_a0fbc4dc24ad64895a839beee4bd1bab4}{update\+User}} (\$id, \$username, \$email)
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_user_model_a28fcd241d9694164e04220e5cae2a010}{update\+Password}} (\$id, \$password)
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_user_model_af6e9be097d493e586b6338542c9ac8ac}{delete\+User}} (\$id)
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_user_model_a2a57ff39749467d577dc6d9572f19483}{email\+Exists}} (\$email)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_user_model_af789008e5dedf55f756ee647fddc35a7}{\$db}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class User\+Model Modèle pour la gestion des utilisateurs dans la base de données. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_app_1_1_models_1_1_user_model_aec3d769fdf7b50a45c61d47b08d70cef}\index{App\textbackslash{}Models\textbackslash{}UserModel@{App\textbackslash{}Models\textbackslash{}UserModel}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!App\textbackslash{}Models\textbackslash{}UserModel@{App\textbackslash{}Models\textbackslash{}UserModel}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \label{class_app_1_1_models_1_1_user_model_aec3d769fdf7b50a45c61d47b08d70cef} 
+App\textbackslash{}\+Models\textbackslash{}\+User\+Model\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+User\+Model constructor. Initialise la connexion à la base de données en appelant la méthode statique de la classe Database. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_app_1_1_models_1_1_user_model_aae8f18f6cd79ba34bc0723537305a8e0}\index{App\textbackslash{}Models\textbackslash{}UserModel@{App\textbackslash{}Models\textbackslash{}UserModel}!createUser@{createUser}}
+\index{createUser@{createUser}!App\textbackslash{}Models\textbackslash{}UserModel@{App\textbackslash{}Models\textbackslash{}UserModel}}
+\doxysubsubsection{\texorpdfstring{createUser()}{createUser()}}
+{\footnotesize\ttfamily \label{class_app_1_1_models_1_1_user_model_aae8f18f6cd79ba34bc0723537305a8e0} 
+App\textbackslash{}\+Models\textbackslash{}\+User\+Model\+::create\+User (\begin{DoxyParamCaption}\item[{}]{\$username}{, }\item[{}]{\$email}{, }\item[{}]{\$password}{, }\item[{}]{\$is\+\_\+admin}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
+
+Créer un nouvel utilisateur.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$username} & Nom d\textquotesingle{}utilisateur. \\
+\hline
+string & {\em \$email} & Email de l\textquotesingle{}utilisateur. \\
+\hline
+string & {\em \$password} & Mot de passe de l\textquotesingle{}utilisateur. \\
+\hline
+int & {\em \$is\+\_\+admin} & Indique si l\textquotesingle{}utilisateur est administrateur (0 ou 1). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Retourne true si l\textquotesingle{}utilisateur a été créé, false sinon. 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_models_1_1_user_model_af6e9be097d493e586b6338542c9ac8ac}\index{App\textbackslash{}Models\textbackslash{}UserModel@{App\textbackslash{}Models\textbackslash{}UserModel}!deleteUser@{deleteUser}}
+\index{deleteUser@{deleteUser}!App\textbackslash{}Models\textbackslash{}UserModel@{App\textbackslash{}Models\textbackslash{}UserModel}}
+\doxysubsubsection{\texorpdfstring{deleteUser()}{deleteUser()}}
+{\footnotesize\ttfamily \label{class_app_1_1_models_1_1_user_model_af6e9be097d493e586b6338542c9ac8ac} 
+App\textbackslash{}\+Models\textbackslash{}\+User\+Model\+::delete\+User (\begin{DoxyParamCaption}\item[{}]{\$id}{}\end{DoxyParamCaption})}
+
+Supprimer un utilisateur par son ID.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$id} & L\textquotesingle{}ID de l\textquotesingle{}utilisateur à supprimer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Retourne true si l\textquotesingle{}utilisateur a été supprimé, false sinon. 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_models_1_1_user_model_a2a57ff39749467d577dc6d9572f19483}\index{App\textbackslash{}Models\textbackslash{}UserModel@{App\textbackslash{}Models\textbackslash{}UserModel}!emailExists@{emailExists}}
+\index{emailExists@{emailExists}!App\textbackslash{}Models\textbackslash{}UserModel@{App\textbackslash{}Models\textbackslash{}UserModel}}
+\doxysubsubsection{\texorpdfstring{emailExists()}{emailExists()}}
+{\footnotesize\ttfamily \label{class_app_1_1_models_1_1_user_model_a2a57ff39749467d577dc6d9572f19483} 
+App\textbackslash{}\+Models\textbackslash{}\+User\+Model\+::email\+Exists (\begin{DoxyParamCaption}\item[{}]{\$email}{}\end{DoxyParamCaption})}
+
+Vérifier si un email est déjà utilisé.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$email} & L\textquotesingle{}email à vérifier. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Retourne true si l\textquotesingle{}email est déjà utilisé, false sinon. 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_models_1_1_user_model_ae77e651379b8d1484be5fd4917b561b9}\index{App\textbackslash{}Models\textbackslash{}UserModel@{App\textbackslash{}Models\textbackslash{}UserModel}!findUserByUsername@{findUserByUsername}}
+\index{findUserByUsername@{findUserByUsername}!App\textbackslash{}Models\textbackslash{}UserModel@{App\textbackslash{}Models\textbackslash{}UserModel}}
+\doxysubsubsection{\texorpdfstring{findUserByUsername()}{findUserByUsername()}}
+{\footnotesize\ttfamily \label{class_app_1_1_models_1_1_user_model_ae77e651379b8d1484be5fd4917b561b9} 
+App\textbackslash{}\+Models\textbackslash{}\+User\+Model\+::find\+User\+By\+Username (\begin{DoxyParamCaption}\item[{}]{\$username}{}\end{DoxyParamCaption})}
+
+Trouver un utilisateur par son nom d\textquotesingle{}utilisateur.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$username} & Le nom d\textquotesingle{}utilisateur à rechercher. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array\texorpdfstring{$\vert$}{|}false L\textquotesingle{}utilisateur trouvé ou false si non trouvé. 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_models_1_1_user_model_a51753f74333a1390cf957c9d905fe930}\index{App\textbackslash{}Models\textbackslash{}UserModel@{App\textbackslash{}Models\textbackslash{}UserModel}!getAllUsers@{getAllUsers}}
+\index{getAllUsers@{getAllUsers}!App\textbackslash{}Models\textbackslash{}UserModel@{App\textbackslash{}Models\textbackslash{}UserModel}}
+\doxysubsubsection{\texorpdfstring{getAllUsers()}{getAllUsers()}}
+{\footnotesize\ttfamily \label{class_app_1_1_models_1_1_user_model_a51753f74333a1390cf957c9d905fe930} 
+App\textbackslash{}\+Models\textbackslash{}\+User\+Model\+::get\+All\+Users (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Récupérer tous les utilisateurs.
+
+\begin{DoxyReturn}{Returns}
+array\texorpdfstring{$\vert$}{|}false Liste des utilisateurs ou false si aucun utilisateur trouvé. 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_models_1_1_user_model_aa883dc13583940734185c397da0dd93e}\index{App\textbackslash{}Models\textbackslash{}UserModel@{App\textbackslash{}Models\textbackslash{}UserModel}!getUserById@{getUserById}}
+\index{getUserById@{getUserById}!App\textbackslash{}Models\textbackslash{}UserModel@{App\textbackslash{}Models\textbackslash{}UserModel}}
+\doxysubsubsection{\texorpdfstring{getUserById()}{getUserById()}}
+{\footnotesize\ttfamily \label{class_app_1_1_models_1_1_user_model_aa883dc13583940734185c397da0dd93e} 
+App\textbackslash{}\+Models\textbackslash{}\+User\+Model\+::get\+User\+By\+Id (\begin{DoxyParamCaption}\item[{}]{\$id}{}\end{DoxyParamCaption})}
+
+Récupérer un utilisateur par son ID.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$id} & L\textquotesingle{}ID de l\textquotesingle{}utilisateur à récupérer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array\texorpdfstring{$\vert$}{|}false Les données de l\textquotesingle{}utilisateur ou false si non trouvé. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 1
+\Hypertarget{class_app_1_1_models_1_1_user_model_a19894ef1e211b2acc3c3705ee1c4d8b2}\index{App\textbackslash{}Models\textbackslash{}UserModel@{App\textbackslash{}Models\textbackslash{}UserModel}!isAdmin@{isAdmin}}
+\index{isAdmin@{isAdmin}!App\textbackslash{}Models\textbackslash{}UserModel@{App\textbackslash{}Models\textbackslash{}UserModel}}
+\doxysubsubsection{\texorpdfstring{isAdmin()}{isAdmin()}}
+{\footnotesize\ttfamily \label{class_app_1_1_models_1_1_user_model_a19894ef1e211b2acc3c3705ee1c4d8b2} 
+App\textbackslash{}\+Models\textbackslash{}\+User\+Model\+::is\+Admin (\begin{DoxyParamCaption}\item[{}]{\$id}{}\end{DoxyParamCaption})}
+
+Vérifier si un utilisateur est administrateur.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$id} & L\textquotesingle{}ID de l\textquotesingle{}utilisateur. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Retourne true si l\textquotesingle{}utilisateur est administrateur, false sinon. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 2
+\Hypertarget{class_app_1_1_models_1_1_user_model_a28fcd241d9694164e04220e5cae2a010}\index{App\textbackslash{}Models\textbackslash{}UserModel@{App\textbackslash{}Models\textbackslash{}UserModel}!updatePassword@{updatePassword}}
+\index{updatePassword@{updatePassword}!App\textbackslash{}Models\textbackslash{}UserModel@{App\textbackslash{}Models\textbackslash{}UserModel}}
+\doxysubsubsection{\texorpdfstring{updatePassword()}{updatePassword()}}
+{\footnotesize\ttfamily \label{class_app_1_1_models_1_1_user_model_a28fcd241d9694164e04220e5cae2a010} 
+App\textbackslash{}\+Models\textbackslash{}\+User\+Model\+::update\+Password (\begin{DoxyParamCaption}\item[{}]{\$id}{, }\item[{}]{\$password}{}\end{DoxyParamCaption})}
+
+Mettre à jour le mot de passe d\textquotesingle{}un utilisateur.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$id} & L\textquotesingle{}ID de l\textquotesingle{}utilisateur. \\
+\hline
+string & {\em \$password} & Nouveau mot de passe. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Retourne true si le mot de passe a été mis à jour, false sinon. 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_models_1_1_user_model_a0fbc4dc24ad64895a839beee4bd1bab4}\index{App\textbackslash{}Models\textbackslash{}UserModel@{App\textbackslash{}Models\textbackslash{}UserModel}!updateUser@{updateUser}}
+\index{updateUser@{updateUser}!App\textbackslash{}Models\textbackslash{}UserModel@{App\textbackslash{}Models\textbackslash{}UserModel}}
+\doxysubsubsection{\texorpdfstring{updateUser()}{updateUser()}}
+{\footnotesize\ttfamily \label{class_app_1_1_models_1_1_user_model_a0fbc4dc24ad64895a839beee4bd1bab4} 
+App\textbackslash{}\+Models\textbackslash{}\+User\+Model\+::update\+User (\begin{DoxyParamCaption}\item[{}]{\$id}{, }\item[{}]{\$username}{, }\item[{}]{\$email}{}\end{DoxyParamCaption})}
+
+Mettre à jour les informations d\textquotesingle{}un utilisateur.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$id} & L\textquotesingle{}ID de l\textquotesingle{}utilisateur à mettre à jour. \\
+\hline
+string & {\em \$username} & Nouveau nom d\textquotesingle{}utilisateur. \\
+\hline
+string & {\em \$email} & Nouveau email de l\textquotesingle{}utilisateur. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Retourne true si l\textquotesingle{}utilisateur a été mis à jour, false sinon. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_app_1_1_models_1_1_user_model_af789008e5dedf55f756ee647fddc35a7}\index{App\textbackslash{}Models\textbackslash{}UserModel@{App\textbackslash{}Models\textbackslash{}UserModel}!\$db@{\$db}}
+\index{\$db@{\$db}!App\textbackslash{}Models\textbackslash{}UserModel@{App\textbackslash{}Models\textbackslash{}UserModel}}
+\doxysubsubsection{\texorpdfstring{\$db}{\$db}}
+{\footnotesize\ttfamily \label{class_app_1_1_models_1_1_user_model_af789008e5dedf55f756ee647fddc35a7} 
+App\textbackslash{}\+Models\textbackslash{}\+User\+Model\+::\$db\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+app/\+Models/\mbox{\hyperlink{_user_model_8php}{User\+Model.\+php}}\end{DoxyCompactItemize}

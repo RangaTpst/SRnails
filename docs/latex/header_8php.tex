@@ -1,0 +1,32 @@
+\doxysection{app/\+Views/layouts/header.php File Reference}
+\hypertarget{header_8php}{}\label{header_8php}\index{app/Views/layouts/header.php@{app/Views/layouts/header.php}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{header_8php_abd1126b700f29423e3ddf54b5d05542c}{if}}(session\+\_\+status()===PHP\+\_\+\+SESSION\+\_\+\+NONE) \mbox{\hyperlink{header_8php_a325557fb93874675ec7ee5612927ea55}{\$user}} = null
+\item 
+\mbox{\hyperlink{header_8php_abd1126b700f29423e3ddf54b5d05542c}{if}} (isset( \$\+\_\+\+SESSION\mbox{[} \textquotesingle{}user\+\_\+id\textquotesingle{}\mbox{]})) = \$title ?? \textquotesingle{}SR Nails\textquotesingle{}
+\item 
+\mbox{\hyperlink{header_8php_abd1126b700f29423e3ddf54b5d05542c}{if}}(\$user)(\$user\mbox{[}\textquotesingle{}is\+\_\+admin\textquotesingle{}\mbox{]}===1) \mbox{\hyperlink{header_8php_a537da5a09d9cedb08b3ad0bba89da42e}{else}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{header_8php_a325557fb93874675ec7ee5612927ea55}\index{header.php@{header.php}!\$user@{\$user}}
+\index{\$user@{\$user}!header.php@{header.php}}
+\doxysubsubsection{\texorpdfstring{\$user}{\$user}}
+{\footnotesize\ttfamily \label{header_8php_a325557fb93874675ec7ee5612927ea55} 
+\mbox{\hyperlink{header_8php_abd1126b700f29423e3ddf54b5d05542c}{if}} (session\+\_\+status()===PHP\+\_\+\+SESSION\+\_\+\+NONE) \$user = null}
+
+\Hypertarget{header_8php_a537da5a09d9cedb08b3ad0bba89da42e}\index{header.php@{header.php}!else@{else}}
+\index{else@{else}!header.php@{header.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily \label{header_8php_a537da5a09d9cedb08b3ad0bba89da42e} 
+\mbox{\hyperlink{header_8php_abd1126b700f29423e3ddf54b5d05542c}{if}} ( \$user) ( \$user\mbox{[} \textquotesingle{}is\+\_\+admin\textquotesingle{}\mbox{]}===1) else}
+
+\Hypertarget{header_8php_abd1126b700f29423e3ddf54b5d05542c}\index{header.php@{header.php}!if@{if}}
+\index{if@{if}!header.php@{header.php}}
+\doxysubsubsection{\texorpdfstring{if}{if}}
+{\footnotesize\ttfamily \label{header_8php_abd1126b700f29423e3ddf54b5d05542c} 
+if(isset(\$\+\_\+\+SESSION\mbox{[}\textquotesingle{}user\+\_\+id\textquotesingle{}\mbox{]})) (\begin{DoxyParamCaption}\item[{isset( \$\+\_\+\+SESSION\mbox{[} \textquotesingle{}user\+\_\+id\textquotesingle{}\mbox{]})}]{}{}\end{DoxyParamCaption}) = \$title ?? \textquotesingle{}SR Nails\textquotesingle{}}
+
