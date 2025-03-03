@@ -34,13 +34,14 @@ SRNails est un projet développé dans le cadre du BTS SIO. Il s'agit d'une appl
 - Composer
 - MySQL
 - Graphviz (pour la génération des diagrammes UML)
+- plantUML
 - Doxygen (pour la documentation)
 
 ### Tutoriel d'installation
 
 1. Clonez le projet :
     ```bash
-    git clone https://github.com/votre-utilisateur/SRnails.git
+    git clone https://github.com/RangaTpst/SRnails.git
     ```
 
 2. Accédez au dossier du projet :
@@ -73,8 +74,8 @@ SRNails est un projet développé dans le cadre du BTS SIO. Il s'agit d'une appl
 7. Accédez au site à l'adresse : `http://localhost:8000`
 
 ### Informations de connexion par défaut :
-- **Admin** : admin@example.com / password
-- **Utilisateur** : user@example.com / password
+- **Admin** : admin@example.com / admin123
+- **Utilisateur** : user@example.com / user123
 
 ## Structure du projet
 
