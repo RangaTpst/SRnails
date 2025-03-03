@@ -1,0 +1,11 @@
+<map id="App\Controllers\ArticleController\isAdmin" name="App\Controllers\ArticleController\isAdmin">
+<area shape="rect" id="Node000001" title=" " alt="" coords="262,105,470,148"/>
+<area shape="rect" id="Node000002" href="$class_app_1_1_controllers_1_1_article_controller.html#af998b7d389ca1955b5853589507eee60" title=" " alt="" coords="5,5,214,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="303,101,213,62,181,51,182,46,215,58,305,96"/>
+<area shape="rect" id="Node000003" href="$class_app_1_1_controllers_1_1_article_controller.html#a0ed99e0f6a60e041781b4cb7c1cb4ff1" title=" " alt="" coords="5,72,214,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="246,114,214,110,215,104,247,108"/>
+<area shape="rect" id="Node000004" href="$class_app_1_1_controllers_1_1_article_controller.html#a585aa247c742504e9b3536f376e49ab3" title=" " alt="" coords="5,139,214,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="247,145,215,149,214,144,246,140"/>
+<area shape="rect" id="Node000005" href="$class_app_1_1_controllers_1_1_article_controller.html#a3f7df5e96c262e90a7d0f5991fe2c21d" title=" " alt="" coords="5,205,214,248"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="305,157,215,196,182,207,181,202,213,191,303,152"/>
+</map>

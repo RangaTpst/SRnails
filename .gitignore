@@ -25,6 +25,7 @@ Thumbs.db
 .idea/
 *.sublime-*
 *~
+.vs/
 
 # Logs de débogage
 *.log
