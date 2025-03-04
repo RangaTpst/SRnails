@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS users (
 -- Ajout d'un utilisateur admin par défaut (mot de passe : "admin123")
 -- Le mot de passe est stocké sous forme de hash (bcrypt)
 INSERT INTO users (username, email, password, is_admin) 
-VALUES ('admin', 'admin@example.com', '$2y$10$eW5sQ0JsP7p7U.p3BtcJ.Oe/PnIhLE0/XI.AHiYotcKfGfJjB5.zK', 1)
+VALUES ('admin', 'admin@example.com', '$2y$10$mx/BOsaodurgmHo5Sc1/rePrXkfk.Hu.6b/KyP/RtIbkFdZDWa196', 1)
 ON DUPLICATE KEY UPDATE username = username;
 
 -- Création de la table articles
