@@ -57,11 +57,9 @@ class UserController extends BaseController {
             exit;
         }
 
-        // Hash du mot de passe
-        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
         // Création de l'utilisateur
-        if (!$this->userModel->createUser($username, $email, $hashedPassword)) {
+        if (!$this->userModel->createUser($username, $email, $password)) {
             $_SESSION['error'] = "Erreur lors de la création du compte.";
             header('Location: /SRnails/public/user/register');
             exit;

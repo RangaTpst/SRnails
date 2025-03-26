@@ -26,10 +26,10 @@
         <input type="text" id="title" name="title" value="<?= htmlspecialchars($article['title']) ?>" required>
 
         <label for="content">Contenu :</label>
-        <textarea id="content" name="content" required><?= htmlspecialchars($article['description']) ?></textarea>
+        <textarea id="content" name="content" required><?= htmlspecialchars($article['content']) ?></textarea>
 
         <label for="image">Image (URL) :</label>
-        <input type="text" id="image" name="image" value="<?= htmlspecialchars($article['img']) ?>">
+        <input type="text" id="image" name="image" value="<?= htmlspecialchars($article['image']) ?>">
 
         <label for="price">Prix (€) :</label>
         <input type="number" step="0.01" id="price" name="price" value="<?= htmlspecialchars($article['price']) ?>" required>

@@ -49,9 +49,9 @@ class ArticleModel {
      * @param float $price Le prix de l'article.
      * @return bool True si l'article a été créé avec succès, false sinon.
      */
-    public function createArticle($title, $description, $image, $price) {
-        $stmt = $this->db->prepare("INSERT INTO articles (title, description, img, price) VALUES (?, ?, ?, ?)");
-        return $stmt->execute([$title, $description, $image, $price]);
+    public function createArticle($title, $content, $image, $price) {
+        $stmt = $this->db->prepare("INSERT INTO articles (title, content, image, price) VALUES (?, ?, ?, ?)");
+        return $stmt->execute([$title, $content, $image, $price]);
     }
 
     /**
@@ -64,9 +64,9 @@ class ArticleModel {
      * @param float $price Le prix de l'article.
      * @return bool True si l'article a été mis à jour avec succès, false sinon.
      */
-    public function updateArticle($id, $title, $description, $image, $price) {
-        $stmt = $this->db->prepare("UPDATE articles SET title = ?, description = ?, img = ?, price = ? WHERE id = ?");
-        return $stmt->execute([$title, $description, $image, $price, $id]);
+    public function updateArticle($id, $title, $content, $image, $price) {
+        $stmt = $this->db->prepare("UPDATE articles SET title = ?, content = ?, image = ?, price = ? WHERE id = ?");
+        return $stmt->execute([$title, $content, $image, $price, $id]);
     }
 
     /**

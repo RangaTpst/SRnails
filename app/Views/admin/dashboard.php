@@ -52,8 +52,8 @@
                     <?php foreach ($articles as $article): ?>
                         <tr>
                             <td><?= htmlspecialchars($article['title']) ?></td>
-                            <td><?= htmlspecialchars($article['description']) ?></td>
-                            <td><img src="<?= htmlspecialchars($article['img']) ?>" alt="Image de l'article" style="width: 50px; height: 50px;"></td>
+                            <td><?= htmlspecialchars($article['content']) ?></td>
+                            <td><img src="<?= htmlspecialchars($article['image']) ?>" alt="Image de l'article" style="width: 50px; height: 50px;"></td>
                             <td><?= htmlspecialchars($article['price']) ?> €</td>
                             <td>
                                 <!-- Lien vers la page de modification de l'article -->
