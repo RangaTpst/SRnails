@@ -20,16 +20,31 @@
         <?php unset($_SESSION['success']); ?>
     <?php endif; ?>
 
-    <!-- Formulaire de mise à jour de l'article -->
-    <form action="/SRnails/public/article/<?= $article['id'] ?>/update" method="POST">
+    <form action="/SRnails/public/article/<?= $article['id'] ?>/update" method="POST" enctype="multipart/form-data">
         <label for="title">Titre :</label>
         <input type="text" id="title" name="title" value="<?= htmlspecialchars($article['title']) ?>" required>
 
         <label for="content">Contenu :</label>
         <textarea id="content" name="content" required><?= htmlspecialchars($article['content']) ?></textarea>
 
-        <label for="image">Image (URL) :</label>
-        <input type="text" id="image" name="image" value="<?= htmlspecialchars($article['image']) ?>">
+        <label for="category">Catégorie :</label>
+        <select id="category" name="category" required>
+            <option value="">-- Choisir une catégorie --</option>
+            <option value="faux ongles" <?= $article['category'] === 'faux ongles' ? 'selected' : '' ?>>💅 Faux ongles</option>
+            <option value="accessoires" <?= $article['category'] === 'accessoires' ? 'selected' : '' ?>>🌸 Accessoires</option>
+            <option value="soins" <?= $article['category'] === 'soins' ? 'selected' : '' ?>>🌿 Soins des ongles</option>
+            <option value="coffret" <?= $article['category'] === 'coffret' ? 'selected' : '' ?>>🎁 Coffrets</option>
+        </select>
+
+        <?php if (!empty($article['image'])): ?>
+            <div>
+                <p>Image actuelle :</p>
+                <img src="/SRnails/public/assets/img/articles/<?= htmlspecialchars($article['image']) ?>" alt="image actuelle" width="150">
+            </div>
+        <?php endif; ?>
+
+        <label for="image">Changer l’image :</label>
+        <input type="file" id="image" name="image">
 
         <label for="price">Prix (€) :</label>
         <input type="number" step="0.01" id="price" name="price" value="<?= htmlspecialchars($article['price']) ?>" required>

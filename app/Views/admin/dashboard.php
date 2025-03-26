@@ -38,12 +38,14 @@
         <!-- Gestion des articles -->
         <section>
             <h3>📚 Gestion des articles</h3>
+            <p><a href="/SRnails/public/admin/article/create" class="btn">Créer un nouvel article</a></p>
+
             <table>
                 <thead>
                     <tr>
                         <th>Titre</th>
                         <th>Description</th>
-                        <th>Image</th>
+                        <th>catégorie</th>
                         <th>Prix</th>
                         <th>Actions</th>
                     </tr>
@@ -53,7 +55,7 @@
                         <tr>
                             <td><?= htmlspecialchars($article['title']) ?></td>
                             <td><?= htmlspecialchars($article['content']) ?></td>
-                            <td><img src="<?= htmlspecialchars($article['image']) ?>" alt="Image de l'article" style="width: 50px; height: 50px;"></td>
+                            <td><?= htmlspecialchars($article['category']) ?></td>
                             <td><?= htmlspecialchars($article['price']) ?> €</td>
                             <td>
                                 <!-- Lien vers la page de modification de l'article -->
@@ -66,26 +68,6 @@
             </table>
         </section>
     </div>
-
-    <!-- Création d'un article -->
-    <section>
-        <h3>📝 Créer un article</h3>
-        <form method="post" action="/SRnails/public/article/create">
-            <label for="title">Titre :</label>
-            <input type="text" id="title" name="title" required>
-
-            <label for="content">Description :</label>
-            <textarea id="content" name="description" required></textarea>
-
-            <label for="image">Image (URL) :</label>
-            <input type="text" id="image" name="img">
-
-            <label for="price">Prix (€) :</label>
-            <input type="number" step="0.01" id="price" name="price" required>
-
-            <button type="submit">Créer l'article</button>
-        </form>
-    </section>
 </main>
 
 <?php include __DIR__ . '/../layouts/footer.php'; ?>

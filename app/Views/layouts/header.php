@@ -23,6 +23,7 @@ if (isset($_SESSION['user_id'])) {
         <nav>
             <ul>
                 <li><a href="/SRnails/public">Accueil</a></li>
+                <li><a href="/SRnails/public/articles">Nos articles</a></li>
                 <?php if ($user): ?>
                     <li><a href="/SRnails/public/user/dashboard">Dashboard</a></li>
                     <?php if ($user['is_admin'] === 1): ?>

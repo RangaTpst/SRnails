@@ -1,5 +1,7 @@
 <?php
 namespace App\Controllers;
+use App\Models\ArticleModel;
+
 
 /**
  * Contrôleur principal pour la page d'accueil.
@@ -21,14 +23,15 @@ class HomeController extends BaseController {
      *
      * @return void
      */
-    public function index() {
-        // Données à passer à la vue
-        $data = [
-            'title' => 'Bienvenue sur SR Nails',
-            'welcome_message' => 'Découvrez nos produits et services exceptionnels !'
-        ];
+    public function index()
+    {
+        $articleModel = new ArticleModel();
+        $articles = $articleModel->getLatestArticles(4);
 
-        // Rendu de la vue avec les données
-        $this->render('/home/main', $data);
+        $this->render('home/main', [
+            'title' => 'Bienvenue sur SR Nails',
+            'welcome_message' => 'Découvrez nos produits et services exceptionnels !',
+            'articles' => $articles
+        ]);
     }
 }

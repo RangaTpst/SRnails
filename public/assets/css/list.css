@@ -1,0 +1,128 @@
+/* --- Layout principal --- */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Zone entre header et footer */
+.page-layout {
+    margin-top: 70px;     /* hauteur du header */
+    height: calc(100vh - 130px);
+    display: flex;
+    overflow: hidden;
+}
+
+
+/* --- Colonne de gauche : filtres --- */
+.filters {
+    width: 20%;
+    background: #fff;
+    padding: 20px;
+    overflow-y: auto;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+.filters h4 {
+    margin-top: 20px;
+    font-size: 1rem;
+}
+
+.filters input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.filters label {
+    display: block;
+    font-size: 0.95rem;
+}
+
+.filters button {
+    margin-top: 15px;
+    padding: 8px 12px;
+    background: #222;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filters button:hover {
+    background: #444;
+}
+
+/* --- Colonne de droite : contenu principal --- */
+.content {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+/* --- Grille d’articles --- */
+.article-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* --- Tuiles --- */
+.tile {
+    position: relative;
+    max-width:max-content;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    background: #000;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+/* Overlay invisible par défaut */
+.tile .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Titre caché par défaut */
+.tile h3 {
+    opacity: 0;
+    font-size: 1.1em;
+    transition: opacity 0.3s ease;
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+}
+
+/* Hover effet */
+.tile:hover img {
+    transform: scale(1.05);
+}
+
+.tile:hover .overlay {
+    opacity: 1;
+}
+
+.tile:hover h3 {
+    opacity: 1;
+}

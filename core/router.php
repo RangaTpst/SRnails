@@ -4,9 +4,7 @@ namespace Core;
 /**
  * Classe Router
  *
- * La classe Router est responsable du traitement des requêtes HTTP entrantes et de la gestion de l'acheminement des
- * requêtes vers les contrôleurs appropriés selon l'URL demandée. Elle analyse l'URI, détermine la route et
- * appelle la méthode correspondante dans le contrôleur approprié.
+ * Gère les requêtes entrantes et redirige vers le bon contrôleur/méthode.
  *
  * @package Core
  */
@@ -14,13 +12,9 @@ class Router {
     /**
      * Gère la requête en analysant l'URL et en appelant le contrôleur et la méthode appropriés.
      *
-     * Cette méthode analyse l'URI de la requête et dirige la demande vers le contrôleur et l'action appropriés.
-     * Si l'URI ne correspond à aucune des routes définies, un message d'erreur 404 est renvoyé.
-     * 
      * @return void
      */
     public function handleRequest() {
-        // Récupération de l'URI demandée
         $uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
 
         // ✅ Route vers la page d'accueil
@@ -28,73 +22,82 @@ class Router {
             $controller = new \App\Controllers\HomeController();
             $controller->index();
 
-        // ✅ Route pour afficher le formulaire de connexion
+        // ✅ Routes Utilisateur : Connexion, Déconnexion, Inscription, Dashboard
         } elseif ($uri === 'SRnails/public/user/login') {
-            $controller = new \App\Controllers\UserController();
-            $controller->loginForm();
+            (new \App\Controllers\UserController())->loginForm();
 
-        // ✅ Route pour traiter la connexion de l'utilisateur
         } elseif ($uri === 'SRnails/public/user/login/process') {
-            $controller = new \App\Controllers\UserController();
-            $controller->login();
+            (new \App\Controllers\UserController())->login();
 
-        // ✅ Route pour déconnecter l'utilisateur
         } elseif ($uri === 'SRnails/public/user/logout') {
-            $controller = new \App\Controllers\UserController();
-            $controller->logout();
+            (new \App\Controllers\UserController())->logout();
 
-        // ✅ Route pour afficher le formulaire d'inscription
         } elseif ($uri === 'SRnails/public/user/register') {
-            $controller = new \App\Controllers\UserController();
-            $controller->registerForm();
+            (new \App\Controllers\UserController())->registerForm();
 
-        // ✅ Route pour traiter l'inscription d'un utilisateur
         } elseif ($uri === 'SRnails/public/user/register/process') {
-            $controller = new \App\Controllers\UserController();
-            $controller->register();
+            (new \App\Controllers\UserController())->register();
 
-        // ✅ Route pour afficher le formulaire de mise à jour des informations de l'utilisateur
         } elseif ($uri === 'SRnails/public/user/update') {
+            $controller = new \App\Controllers\UserController();
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $controller = new \App\Controllers\UserController();
-                $controller->update();  // Mise à jour des informations de l'utilisateur
+                $controller->update();
             } else {
-                $controller = new \App\Controllers\UserController();
-                $controller->updateForm();  // Affichage du formulaire de mise à jour
+                $controller->updateForm();
             }
 
-        // ✅ Route pour le tableau de bord utilisateur
         } elseif ($uri === 'SRnails/public/user/dashboard') {
-            $controller = new \App\Controllers\UserController();
-            $controller->dashboard();
+            (new \App\Controllers\UserController())->dashboard();
 
-        // ✅ Route pour le tableau de bord administrateur
+        // ✅ Dashboard Admin
         } elseif ($uri === 'SRnails/public/admin/dashboard') {
-            $controller = new \App\Controllers\ArticleController();
-            $controller->adminDashboard();  // Gestion centralisée depuis le tableau de bord admin
+            (new \App\Controllers\ArticleController())->adminDashboard();
 
-        // ✅ Route pour afficher la liste des articles (accessible à tous)
-        } elseif ($uri === 'SRnails/public/article/list') {
-            $controller = new \App\Controllers\ArticleController();
-            $controller->list();
+        // ✅ Liste publique des articles
+        } elseif ($uri === 'SRnails/public/articles') {
+            (new \App\Controllers\ArticleController())->showList();
 
-        // ✅ Route pour la création d'un nouvel article (admin uniquement)
-        } elseif ($uri === 'SRnails/public/article/create') {
+        // ✅ Création d'article
+        } elseif ($uri === 'SRnails/public/admin/article/create') {
             $controller = new \App\Controllers\ArticleController();
-            $controller->create();
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $controller->create();
+            } else {
+                $controller->createForm();
+            }
 
-        // ✅ Route pour la mise à jour d'un article existant (admin uniquement)
+        // ✅ Mise à jour article
         } elseif (preg_match('#^SRnails/public/article/(\d+)/update$#', $uri, $matches)) {
-            $controller = new \App\Controllers\ArticleController();
-            $controller->update($matches[1]);
+            (new \App\Controllers\ArticleController())->update($matches[1]);
 
-        // ✅ Route pour supprimer un article existant (admin uniquement)
+        // ✅ Suppression article
         } elseif (preg_match('#^SRnails/public/article/(\d+)/delete$#', $uri, $matches)) {
-            $controller = new \App\Controllers\ArticleController();
-            $controller->delete($matches[1]);
+            (new \App\Controllers\ArticleController())->delete($matches[1]);
 
-        // ✅ Route 404 pour toute URI non trouvée
+        // ✅ Page de détail d’un article
+        } elseif (preg_match('#^SRnails/public/article/(\d+)$#', $uri, $matches)) {
+            (new \App\Controllers\ArticleController())->show($matches[1]);
+
+        // ✅ Newsletter
+        } elseif ($uri === 'SRnails/public/newsletter/subscribe') {
+            (new \App\Controllers\NewsletterController())->subscribe();
+
+        // ✅ Contact
+        } elseif ($uri === 'SRnails/public/contact') {
+            (new \App\Controllers\ContactController())->index();
+
+        // ✅ À propos
+        } elseif ($uri === 'SRnails/public/about') {
+            (new \App\Controllers\AboutController())->index();
+
+        // ✅ Filtrage par catégorie (ex: /products?category=coffret)
+        } elseif (strpos($uri, 'SRnails/public/products') === 0) {
+            $_GET['category'] = $_GET['category'] ?? null;
+            (new \App\Controllers\ArticleController())->showList();
+
+        // ✅ Route 404
         } else {
+            http_response_code(404);
             echo "404 - Page non trouvée. URI : $uri";
         }
     }

@@ -19,9 +19,55 @@ body {
     padding-top: 70px; /* Décale le contenu pour le header fixe */
 }
 
+.category-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+    padding: 10px 0;
+}
+
+.category-item {
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    color: #fff;
+}
+
+.category-item.faux-ongles {
+    background: #ff80ab;
+}
+
+.category-item.accessoires {
+    background: #ba68c8;
+}
+
+.category-item.soins {
+    background: #81c784;
+}
+
+.category-item.coffrets {
+    background: #ffb74d;
+}
+
+.category-item:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+
+
 /* Masquer la scrollbar pour Chrome, Edge et Safari */
 html::-webkit-scrollbar, body::-webkit-scrollbar {
     display: none;
+}
+h1 {
+    margin-left: 5%;
+    margin-top: 5%;
 }
 
 /* ✅ Conteneur principal */
@@ -33,7 +79,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 
 /* ✅ Sections de contenu (hors carrousel) */
 main section {
-    max-width: 1200px;
+    max-width: 90%;
     width: 90%;
     margin: 40px auto;
     padding: 40px;
@@ -50,6 +96,68 @@ main section {
     border: none;
     font-size: 1.8rem;
     color: #555;
+}
+
+.article-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* --- Tuiles --- */
+.tile {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    background: #000;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+/* Overlay invisible par défaut */
+.tile .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Titre caché par défaut */
+.tile h3 {
+    opacity: 0;
+    font-size: 1.1em;
+    transition: opacity 0.3s ease;
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+}
+
+/* Hover effet */
+.tile:hover img {
+    transform: scale(1.05);
+}
+
+.tile:hover .overlay {
+    opacity: 1;
+}
+
+.tile:hover h3 {
+    opacity: 1;
 }
 
 /* ✅ Responsive */
