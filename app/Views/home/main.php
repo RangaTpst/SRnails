@@ -1,24 +1,24 @@
 <?php include __DIR__ . '/../layouts/header.php'; ?>
-<link rel="stylesheet" href="/SRnails/public/assets/css/styles.css">
-<link rel="stylesheet" href="/SRnails/public/assets/css/carousel.css">
+<link rel="stylesheet" href="<?= $baseUrl ?>/assets/css/styles.css">
+<link rel="stylesheet" href="<?= $baseUrl ?>/assets/css/carousel.css">
 
 <div class="wrapper">
 
     <!-- Carrousel -->
     <section class="carousel">
         <div class="carousel-track">
-            <div class="carousel-item" style="background-image: url('/SRnails/public/assets/img/slide_nos_produits.png');">
-                <a href="/SRnails/public/articles">
+            <div class="carousel-item" style="background-image: url('<?= $baseUrl ?>/assets/img/slide_nos_produits.png');">
+                <a href="<?= $baseUrl ?>/articles">
                     <h3>Découvrez nos produits</h3>
                 </a>
             </div>
-            <div class="carousel-item" style="background-image: url('/SRnails/public/assets/img/slide_a_propos.png');">
-                <a href="/SRnails/public/about">
+            <div class="carousel-item" style="background-image: url('<?= $baseUrl ?>/assets/img/slide_a_propos.png');">
+                <a href="<?= $baseUrl ?>/about">
                     <h3>À propos de SR Nails</h3>
                 </a>
             </div>
-            <div class="carousel-item" style="background-image: url('/SRnails/public/assets/img/slide_contact.png');">
-                <a href="/SRnails/public/contact">
+            <div class="carousel-item" style="background-image: url('<?= $baseUrl ?>/assets/img/slide_contact.png');">
+                <a href="<?= $baseUrl ?>/contact">
                     <h3>Contactez-nous 📩</h3>
                 </a>
             </div>
@@ -37,10 +37,10 @@
         <section class="categories">
     <h3>✨ Nos univers</h3>
     <div class="category-list">
-        <a href="/SRnails/public/articles?category[]=faux%20ongles" class="category-item faux-ongles">💅 Faux-ongles personnalisés</a>
-        <a href="/SRnails/public/articles?category[]=accessoires" class="category-item accessoires">🌸 Accessoires</a>
-        <a href="/SRnails/public/articles?category[]=soins" class="category-item soins">🌿 Soins des ongles</a>
-        <a href="/SRnails/public/articles?category[]=coffret" class="category-item coffrets">🎁 Coffrets cadeaux</a>
+        <a href="<?= $baseUrl ?>/articles?category[]=faux%20ongles" class="category-item faux-ongles">💅 Faux-ongles personnalisés</a>
+        <a href="<?= $baseUrl ?>/articles?category[]=accessoires" class="category-item accessoires">🌸 Accessoires</a>
+        <a href="<?= $baseUrl ?>/articles?category[]=soins" class="category-item soins">🌿 Soins des ongles</a>
+        <a href="<?= $baseUrl ?>/articles?category[]=coffret" class="category-item coffrets">🎁 Coffrets cadeaux</a>
     </div>
 </section>
 
@@ -49,8 +49,8 @@
         <h3>Les nouveautés</h3>
         <div class="article-grid">
             <?php foreach (array_slice($articles, 0, 4) as $article): ?>
-                <a href="/SRnails/public/article/<?= $article['id'] ?>" class="tile">
-                    <img src="/SRnails/public/assets/img/articles/<?= htmlspecialchars($article['image']) ?>" alt="<?= htmlspecialchars($article['title']) ?>">
+                <a href="<?= $baseUrl ?>/article/<?= $article['id'] ?>" class="tile">
+                    <img src="<?= $baseUrl ?>/assets/img/articles/<?= htmlspecialchars($article['image']) ?>" alt="<?= htmlspecialchars($article['title']) ?>">
                     <div class="overlay">
                         <h3><?= htmlspecialchars($article['title']) ?></h3>
                     </div>
@@ -84,7 +84,7 @@
 
         <section class="newsletter">
             <h3>Inscrivez-vous à notre newsletter ✉️</h3>
-            <form action="/SRnails/public/newsletter/subscribe" method="POST">
+            <form action="<?= $baseUrl ?>/newsletter/subscribe" method="POST">
                 <input type="email" name="email" placeholder="Votre email" required>
                 <button type="submit">Je m’inscris</button>
             </form>
@@ -95,4 +95,4 @@
     <?php include __DIR__ . '/../layouts/footer.php'; ?>
 </div>
 
-<script src="/SRnails/public/assets/js/carousel.js"></script>
+<script src="<?= $baseUrl ?>/assets/js/carousel.js"></script>
