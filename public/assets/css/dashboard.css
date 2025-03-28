@@ -1,0 +1,63 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #fff8f5;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Wrapper flex pour coller le footer en bas */
+.wrapper {
+    min-height: 100vh;
+    padding-top: 90px;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    max-width: 90%;
+    margin: 60px auto;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+main h2 {
+    font-size: 2rem;
+    color: #db7093;
+    margin-bottom: 20px;
+}
+
+main p {
+    font-size: 1.1rem;
+    color: #444;
+    margin: 12px 0;
+}
+
+main a {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 24px;
+    background-color: #db7093;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+main a:hover {
+    background-color: #c05a80;
+}
+
+footer {
+    background-color: #db7093;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9rem;
+}
