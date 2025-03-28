@@ -12,7 +12,7 @@
                     <h3>Découvrez nos produits</h3>
                 </a>
             </div>
-            <div class="carousel-item" style="background-image: url('/SRnails/public/assets/img/slide_a_propos');">
+            <div class="carousel-item" style="background-image: url('/SRnails/public/assets/img/slide_a_propos.png');">
                 <a href="/SRnails/public/about">
                     <h3>À propos de SR Nails</h3>
                 </a>
