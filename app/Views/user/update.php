@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/SRnails/public/assets/css/login.css">
+<link rel="stylesheet" href="<?= $baseUrl ?>/assets/css/login.css">
 <body>
     <div class="wrapper">
         <?php include __DIR__ . '/../layouts/header.php'; ?> 

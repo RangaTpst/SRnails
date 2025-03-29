@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title><?= htmlspecialchars($article['title']) ?></title>
-    <link rel="stylesheet" href="/SRnails/public/assets/css/show.css">
+    <link rel="stylesheet" href="<?= $baseUrl ?>/assets/css/show.css">
 </head>
 <body>
 <div class="wrapper">
@@ -12,7 +12,7 @@
 <div class="article-container">
     <div class="article-image">
         <?php if (!empty($article['image'])): ?>
-            <img src="/SRnails/public/assets/img/articles/<?= htmlspecialchars($article['image']) ?>" alt="Image de l'article">
+            <img src="<?= $baseUrl ?>/assets/img/articles/<?= htmlspecialchars($article['image']) ?>" alt="Image de l'article">
         <?php else: ?>
             <p>Pas d'image disponible</p>
         <?php endif; ?>

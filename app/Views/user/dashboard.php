@@ -1,6 +1,6 @@
 <?php include __DIR__ . '/../layouts/header.php'; ?>
 
-<link rel="stylesheet" href="/SRnails/public/assets/css/dashboard.css">
+<link rel="stylesheet" href="<?= $baseUrl ?>/assets/css/dashboard.css">
 
 <body>
     <div class="wrapper">

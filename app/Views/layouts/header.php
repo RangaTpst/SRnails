@@ -27,16 +27,16 @@ $baseUrl = (isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] === 'localhost
         <button class="menu-toggle">☰</button>
         <nav>
             <ul>
-                <li><a href="<?= $baseUrl ?>">Accueil</a></li>
-                <li><a href="<?= $baseUrl ?>/articles">Nos articles</a></li>
+                <li><a href="/SRnails/public">Accueil</a></li>
+                <li><a href="/SRnails/public/articles">Nos articles</a></li>
                 <?php if ($user): ?>
-                    <li><a href="<?= $baseUrl ?>/user/dashboard">Dashboard</a></li>
+                    <li><a href="/SRnails/public/user/dashboard">Dashboard</a></li>
                     <?php if ($user['is_admin'] === 1): ?>
-                        <li><a href="<?= $baseUrl ?>/admin/dashboard">Admin</a></li>
+                        <li><a href="/SRnails/public/admin/dashboard">Admin</a></li>
                     <?php endif; ?>
-                    <li><a href="<?= $baseUrl ?>/user/logout">Déconnexion</a></li>
+                    <li><a href="/SRnails/public/user/logout">Déconnexion</a></li>
                 <?php else: ?>
-                    <li><a href="<?= $baseUrl ?>/user/login">Connexion</a></li>
+                    <li><a href="/SRnails/public/user/login">Connexion</a></li>
                 <?php endif; ?>
             </ul>
         </nav>

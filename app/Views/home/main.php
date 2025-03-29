@@ -8,17 +8,17 @@
     <section class="carousel">
         <div class="carousel-track">
             <div class="carousel-item" style="background-image: url('<?= $baseUrl ?>/assets/img/slide_nos_produits.png');">
-                <a href="<?= $baseUrl ?>/articles">
+                <a href="/SRnails/public/articles">
                     <h3>Découvrez nos produits</h3>
                 </a>
             </div>
             <div class="carousel-item" style="background-image: url('<?= $baseUrl ?>/assets/img/slide_a_propos.png');">
-                <a href="<?= $baseUrl ?>/about">
+                <a href="/SRnails/public/about">
                     <h3>À propos de SR Nails</h3>
                 </a>
             </div>
             <div class="carousel-item" style="background-image: url('<?= $baseUrl ?>/assets/img/slide_contact.png');">
-                <a href="<?= $baseUrl ?>/contact">
+                <a href="/SRnails/public/contact">
                     <h3>Contactez-nous 📩</h3>
                 </a>
             </div>
@@ -37,10 +37,10 @@
         <section class="categories">
     <h3>✨ Nos univers</h3>
     <div class="category-list">
-        <a href="<?= $baseUrl ?>/articles?category[]=faux%20ongles" class="category-item faux-ongles">💅 Faux-ongles personnalisés</a>
-        <a href="<?= $baseUrl ?>/articles?category[]=accessoires" class="category-item accessoires">🌸 Accessoires</a>
-        <a href="<?= $baseUrl ?>/articles?category[]=soins" class="category-item soins">🌿 Soins des ongles</a>
-        <a href="<?= $baseUrl ?>/articles?category[]=coffret" class="category-item coffrets">🎁 Coffrets cadeaux</a>
+        <a href="/SRnails/public/articles?category[]=faux%20ongles" class="category-item faux-ongles">💅 Faux-ongles personnalisés</a>
+        <a href="/SRnails/public/articles?category[]=accessoires" class="category-item accessoires">🌸 Accessoires</a>
+        <a href="/SRnails/public/articles?category[]=soins" class="category-item soins">🌿 Soins des ongles</a>
+        <a href="/SRnails/public/articles?category[]=coffret" class="category-item coffrets">🎁 Coffrets cadeaux</a>
     </div>
 </section>
 
@@ -49,7 +49,7 @@
         <h3>Les nouveautés</h3>
         <div class="article-grid">
             <?php foreach (array_slice($articles, 0, 4) as $article): ?>
-                <a href="<?= $baseUrl ?>/article/<?= $article['id'] ?>" class="tile">
+                <a href="/SRnails/public/article/<?= $article['id'] ?>" class="tile">
                     <img src="<?= $baseUrl ?>/assets/img/articles/<?= htmlspecialchars($article['image']) ?>" alt="<?= htmlspecialchars($article['title']) ?>">
                     <div class="overlay">
                         <h3><?= htmlspecialchars($article['title']) ?></h3>

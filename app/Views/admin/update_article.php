@@ -1,6 +1,6 @@
 <?php include __DIR__ . '/../layouts/header.php'; ?>
 
-<link rel="stylesheet" href="/SRnails/public/assets/css/admin-dashboard.css">
+<link rel="stylesheet" href="<?= $baseUrl ?>/assets/css/admin-dashboard.css">
 
 <main>
     <h2>Mise à jour de l'article</h2>
@@ -39,7 +39,7 @@
         <?php if (!empty($article['image'])): ?>
             <div>
                 <p>Image actuelle :</p>
-                <img src="/SRnails/public/assets/img/articles/<?= htmlspecialchars($article['image']) ?>" alt="image actuelle" width="150">
+                <img src="<?= $baseUrl ?>/assets/img/articles/<?= htmlspecialchars($article['image']) ?>" alt="image actuelle" width="150">
             </div>
         <?php endif; ?>
 

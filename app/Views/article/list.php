@@ -5,8 +5,8 @@
 
     <title>Nos Articles - SR Nails</title>
     <meta name="description" content="Découvrez tous les articles proposés par SR Nails. Ongles, accessoires et plus encore.">
-    <link rel="icon" href="/SRnails/public/assets/img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/SRnails/public/assets/css/list.css">
+    <link rel="icon" href="<?= $baseUrl ?>/assets/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="<?= $baseUrl ?>/assets/css/list.css">
 </head>
 
 <div class="page-layout">
@@ -52,7 +52,7 @@
         <div class="article-grid">
             <?php foreach ($articles as $article): ?>
                 <a href="/SRnails/public/article/<?= $article['id'] ?>" class="tile">
-                    <img src="/SRnails/public/assets/img/articles/<?= htmlspecialchars($article['image']) ?>" alt="<?= htmlspecialchars($article['title']) ?>">
+                    <img src="<?= $baseUrl ?>/assets/img/articles/<?= htmlspecialchars($article['image']) ?>" alt="<?= htmlspecialchars($article['title']) ?>">
                     <div class="overlay">
                         <h3><?= htmlspecialchars($article['title']) ?></h3>
                     </div>

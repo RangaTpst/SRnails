@@ -1,6 +1,6 @@
 <?php include __DIR__ . '/../layouts/header.php'; ?>
 
-<link rel="stylesheet" href="/SRnails/public/assets/css/admin-dashboard.css">
+<link rel="stylesheet" href="<?= $baseUrl ?>/assets/css/admin-dashboard.css">
 
 <main>
     <h2>👑 Tableau de bord administrateur</h2>
