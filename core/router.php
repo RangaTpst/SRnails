@@ -79,21 +79,21 @@ class Router {
             (new \App\Controllers\ArticleController())->show($matches[1]);
 
         // ✅ Newsletter
-        } elseif ($uri === 'SRnails/public/newsletter/subscribe') {
-            (new \App\Controllers\NewsletterController())->subscribe();
+        //} elseif ($uri === 'SRnails/public/newsletter/subscribe') {
+        //    (new \App\Controllers\NewsletterController())->subscribe();
 
         // ✅ Contact
-        } elseif ($uri === 'SRnails/public/contact') {
-            (new \App\Controllers\ContactController())->index();
+        //} elseif ($uri === 'SRnails/public/contact') {
+        //    (new \App\Controllers\ContactController())->index();
 
         // ✅ À propos
-        } elseif ($uri === 'SRnails/public/about') {
-            (new \App\Controllers\AboutController())->index();
+        //} elseif ($uri === 'SRnails/public/about') {
+        //    (new \App\Controllers\AboutController())->index();
 
         // ✅ Filtrage par catégorie (ex: /products?category=coffret)
-        } elseif (strpos($uri, 'SRnails/public/products') === 0) {
-            $_GET['category'] = $_GET['category'] ?? null;
-            (new \App\Controllers\ArticleController())->showList();
+        //} elseif (strpos($uri, 'SRnails/public/products') === 0) {
+        //    $_GET['category'] = $_GET['category'] ?? null;
+        //    (new \App\Controllers\ArticleController())->showList();
 
         // ✅ Route 404
         } else {
