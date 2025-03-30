@@ -33,6 +33,8 @@ $baseUrl = (isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] === 'localhost
                     <li><a href="/SRnails/public/user/dashboard">Dashboard</a></li>
                     <?php if ($user['is_admin'] === 1): ?>
                         <li><a href="/SRnails/public/admin/dashboard">Admin</a></li>
+                        <li><a href="http://90.121.52.205:50294/d/eehbtohm9getcf/fail2ban?orgId=1&from=2025-03-29T08:24:41.162Z&to=2025-03-29T20:24:41.162Z&timezone=browser&refresh=5s" target="_blank">Grafana</a></li>
+
                     <?php endif; ?>
                     <li><a href="/SRnails/public/user/logout">Déconnexion</a></li>
                 <?php else: ?>
