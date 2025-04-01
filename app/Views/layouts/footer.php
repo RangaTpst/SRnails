@@ -1,5 +1,5 @@
 <footer>
-    <p><a href="/SRnails/public/mentions-legales">Mentions légales</a> • <a href="/SRnails/public/politique-confidentialite">Politique de confidentialité</a></p>
+    <p><a href="/SRnails/public/mentions-legales">Mentions légales</a> • <a href="/SRnails/public/policy">Politique de confidentialité</a></p>
     
     <p>Suivez-nous :
         <a href="https://instagram.com" target="_blank">Instagram</a> •

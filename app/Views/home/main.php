@@ -61,7 +61,7 @@
 
 
         <section class="testimonials">
-            <h3>Ce qu'en pensent nos clientes 💬</h3>
+            <h3>Ce qu'en pensent nos clients 💬</h3>
             <blockquote>"Magnifique qualité et livraison rapide, je recommande à 100% !" – Laura</blockquote>
             <blockquote>"Les designs sont sublimes et tiennent super bien !" – Sarah</blockquote>
         </section>

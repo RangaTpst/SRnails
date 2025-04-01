@@ -1,0 +1,99 @@
+/* ✅ Styles généraux */
+html, body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* ✅ Section des mentions légales */
+.legal-notice-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+/* ✅ Titre principal */
+.legal-notice-intro h2 {
+    font-size: 2.5em;
+    color: #2d2d2d;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* ✅ Paragraphe d'introduction */
+.legal-notice-intro p {
+    font-size: 1.1em;
+    color: #6c6c6c;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* ✅ Contenu des mentions légales */
+.legal-notice-content h3, .legal-notice-content h4 {
+    font-size: 1.5em;
+    color: #2d2d2d;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #2d2d2d;
+    padding-bottom: 5px;
+}
+
+.legal-notice-content p {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.legal-notice-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.legal-notice-content ul li {
+    margin-left: 20px;
+    color: #555;
+    font-size: 1.1em;
+}
+
+/* ✅ Liens */
+.legal-notice-content a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.legal-notice-content a:hover {
+    text-decoration: underline;
+}
+
+/* ✅ Section de footer */
+footer {
+    margin-top: 50px;
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    font-size: 1em;
+}
+
+/* ✅ Responsive */
+@media (max-width: 768px) {
+    .legal-notice-page {
+        padding: 20px;
+    }
+
+    .legal-notice-intro h2 {
+        font-size: 2em;
+    }
+
+    .legal-notice-content h3, .legal-notice-content h4 {
+        font-size: 1.3em;
+    }
+
+    .legal-notice-content p {
+        font-size: 1em;
+    }
+}

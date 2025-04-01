@@ -199,3 +199,111 @@ main section {
         color: white;
     }
 }
+
+.contact-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+}
+
+/* Section d'introduction */
+.contact-intro {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.contact-intro h2 {
+    font-size: 2rem;
+    color: #ff80ab;
+}
+
+.contact-intro p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Conteneur des sections : localisation et formulaire */
+.contact-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width:90%;
+    width: 100%;
+}
+
+/* Bloc localisation (Google Maps) */
+.contact-location {
+    flex: 1 1 400px;
+    min-width: 300px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* Bloc formulaire de contact */
+.contact-form {
+    flex: 1 1 400px;
+    min-width: 300px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.contact-form button {
+    background-color: #ff80ab;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+    width: fit-content;
+}
+
+.contact-form button:hover {
+    background-color: #ec407a;
+}
+
+/* Bloc des autres moyens de contact */
+.contact-info {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.contact-info h3 {
+    font-size: 1.5rem;
+    color: #ff80ab;
+}
+
+.contact-info p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.contact-info a {
+    color: #ff80ab;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    color: #ec407a;
+}

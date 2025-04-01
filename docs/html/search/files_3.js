@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['footer_2ephp_0',['footer.php',['../footer_8php.html',1,'']]]
+  ['dashboard_2ephp_0',['dashboard.php',['../admin_2dashboard_8php.html',1,'(Global Namespace)'],['../user_2dashboard_8php.html',1,'(Global Namespace)']]]
 ];

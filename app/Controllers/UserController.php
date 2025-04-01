@@ -38,13 +38,20 @@ class UserController extends BaseController {
         $email = trim($_POST['email'] ?? '');
         $password = $_POST['password'] ?? '';
         $passwordConfirm = $_POST['password_confirm'] ?? '';
-
-        if (empty($username) || empty($email) || empty($password) || empty($passwordConfirm)) {
-            $_SESSION['error'] = "Tous les champs doivent être remplis.";
+        
+        $errors = $this->userModel->validate([
+            'username' => $username,
+            'email' => $email,
+            'password' => $password,
+            'password_confirm' => $passwordConfirm
+        ]);
+        
+        if (!empty($errors)) {
+            $_SESSION['error'] = implode('<br>', $errors);
             header('Location: /SRnails/public/user/register');
             exit;
         }
-
+        
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $_SESSION['error'] = "L'email n'est pas valide.";
             header('Location: /SRnails/public/user/register');
@@ -65,9 +72,13 @@ class UserController extends BaseController {
             exit;
         }
 
-        // Redirection après inscription réussie
+        $_SESSION['success'] = "Votre compte a été créé avec succès. Vous pouvez maintenant vous connecter.";
         header('Location: /SRnails/public/user/login');
         exit;
+
+
+exit;
+
     }
 
     /**
@@ -151,11 +162,17 @@ class UserController extends BaseController {
         $username = trim($_POST['username'] ?? '');
         $email = trim($_POST['email'] ?? '');
 
-        if (empty($username) || empty($email)) {
-            $_SESSION['error'] = "Tous les champs doivent être remplis.";
+        $errors = $this->userModel->validate([
+            'username' => $username,
+            'email' => $email
+        ], true);
+        
+        if (!empty($errors)) {
+            $_SESSION['error'] = implode('<br>', $errors);
             header('Location: /SRnails/public/user/update');
             exit;
         }
+        
 
         if (!$this->userModel->updateUser($user['id'], $username, $email)) {
             $_SESSION['error'] = "Erreur lors de la mise à jour.";

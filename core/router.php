@@ -22,6 +22,23 @@ class Router {
             $controller = new \App\Controllers\HomeController();
             $controller->index();
 
+          // ✅ Page À propos
+        } elseif ($uri === 'SRnails/public/about') {
+            (new \App\Controllers\StaticController())->about();
+
+        // ✅ Page Contact
+        } elseif ($uri === 'SRnails/public/contact') {
+            (new \App\Controllers\StaticController())->contact();
+
+            // ✅ Mention Legal
+        } elseif ($uri === 'SRnails/public/mentions-legales') {
+            (new \App\Controllers\StaticController())->legalNotice();
+
+            // ✅ politique de confidentialité
+        } elseif ($uri === 'SRnails/public/policy') {
+            (new \App\Controllers\StaticController())->policy();
+  
+
         // ✅ Routes Utilisateur : Connexion, Déconnexion, Inscription, Dashboard
         } elseif ($uri === 'SRnails/public/user/login') {
             (new \App\Controllers\UserController())->loginForm();

@@ -8,10 +8,6 @@ if (isset($_SESSION['user_id'])) {
     $user = \App\Controllers\UserController::getLoggedInUser();
 }
 
-// Détection de l'environnement pour gérer les chemins
-$baseUrl = (isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] === 'localhost') 
-    ? '/SRnails/public' 
-    : '';
 ?>
 <head>
     <meta charset="UTF-8">

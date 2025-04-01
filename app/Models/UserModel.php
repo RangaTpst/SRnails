@@ -129,4 +129,41 @@ class UserModel {
         $stmt->execute([$email]);
         return $stmt->fetch() !== false;
     }
+
+        /**
+     * Valide les données utilisateur.
+     *
+     * @param array $data Données utilisateur (username, email, password, etc.)
+     * @param bool $isUpdate Si true, on ne valide pas le mot de passe
+     * @return array Liste des erreurs (vide si aucune erreur)
+     */
+    public function validate(array $data, bool $isUpdate = false): array {
+        $errors = [];
+
+        // Nom d'utilisateur
+        if (empty($data['username'])) {
+            $errors[] = "Le nom d'utilisateur est requis.";
+        }
+
+        // Email
+        if (empty($data['email'])) {
+            $errors[] = "L'email est requis.";
+        } elseif (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+            $errors[] = "L'email n'est pas valide.";
+        }
+
+        // Mot de passe
+        if (!$isUpdate) {
+            if (empty($data['password'])) {
+                $errors[] = "Le mot de passe est requis.";
+            }
+
+            if (isset($data['password_confirm']) && $data['password'] !== $data['password_confirm']) {
+                $errors[] = "Les mots de passe ne correspondent pas.";
+            }
+        }
+
+        return $errors;
+    }
+
 }

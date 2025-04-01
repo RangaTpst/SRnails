@@ -1,7 +1,9 @@
 <?php include __DIR__ . '/../layouts/header.php'; ?> 
 
 <link rel="stylesheet" href="<?= $baseUrl ?>/assets/css/login.css">
-
+<div id="toast" class="toast" style="display:none;">
+    ✅ Votre compte a été créé avec succès ! Redirection...
+</div>
 <main>
 
 
@@ -38,40 +40,46 @@
 <?php include __DIR__ . '/../layouts/footer.php'; ?>
 
 <script>
-// Vérification côté client du formulaire d'inscription
 document.getElementById('register-form').addEventListener('submit', function(e) {
-    const username = document.getElementById('username').value;
-    const email = document.getElementById('email').value;
+    const username = document.getElementById('username').value.trim();
+    const email = document.getElementById('email').value.trim();
     const password = document.getElementById('password').value;
     const passwordConfirm = document.getElementById('password_confirm').value;
 
-    // Vérification que tous les champs sont remplis
-    if (username === '' || email === '' || password === '' || passwordConfirm === '') {
+    if (!username || !email || !password || !passwordConfirm) {
         alert("Tous les champs doivent être remplis.");
-        e.preventDefault(); // Annule la soumission du formulaire
+        e.preventDefault();
         return;
     }
 
-    // Vérification de la validité de l'email
-    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
     if (!emailPattern.test(email)) {
         alert("L'email n'est pas valide.");
         e.preventDefault();
         return;
     }
 
-    // Vérification que les mots de passe correspondent
     if (password !== passwordConfirm) {
         alert("Les mots de passe ne correspondent pas.");
         e.preventDefault();
         return;
     }
 
-    // Vérification de la sécurité du mot de passe
     if (password.length < 8 || !/[A-Z]/.test(password) || !/[a-z]/.test(password) || !/[0-9]/.test(password)) {
         alert("Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule et un chiffre.");
         e.preventDefault();
         return;
     }
+
+    // ✅ Affiche la pop-up
+    const toast = document.getElementById('toast');
+    toast.style.display = 'block';
+
+    // ⏳ Redirige le formulaire 1s plus tard (laisse le toast s'afficher)
+    setTimeout(() => {
+        document.getElementById('register-form').submit(); // continue l'envoi POST
+    }, 1000);
+
+    e.preventDefault(); // stop temporairement la soumission
 });
 </script>

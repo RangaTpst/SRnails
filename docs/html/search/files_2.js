@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dashboard_2ephp_0',['dashboard.php',['../admin_2dashboard_8php.html',1,'(Global Namespace)'],['../user_2dashboard_8php.html',1,'(Global Namespace)']]]
+  ['create_5farticle_2ephp_0',['create_article.php',['../create__article_8php.html',1,'']]]
 ];

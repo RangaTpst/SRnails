@@ -3,8 +3,8 @@ var indexSectionsWithContent =
   0: "$_abcdefghilmrsu",
   1: "abhu",
   2: "as",
-  3: "abdfhilmru",
-  4: "_acdefgilru",
+  3: "abcdfhilmrsu",
+  4: "_acdefgilrsu",
   5: "$_ei"
 };
 

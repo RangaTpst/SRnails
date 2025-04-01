@@ -26,6 +26,11 @@ class BaseController {
     public function render($view, $data = []) {
         extract($data); // Rend les variables disponibles dans la vue
 
+        // Détection de l'environnement pour gérer les chemins
+        $baseUrl = (isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] === 'localhost') 
+        ? '/SRnails/public' 
+        : '';
+
         // Utilisation d'un chemin basé sur la racine du projet
         $viewPath = dirname(__DIR__) . "/Views/$view.php";
 

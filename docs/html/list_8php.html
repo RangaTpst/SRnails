@@ -110,18 +110,39 @@ $(function(){initNavTree('list_8php.html',''); initResizable(true); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a67b0d7e376531b87b620f355467447f4" id="r_a67b0d7e376531b87b620f355467447f4"><td class="memItemLeft" align="right" valign="top">foreach( $articles as $article)( $article[ 'title']) ?&gt;&lt;/strong &gt;&lt; p &gt;&lt;?&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67b0d7e376531b87b620f355467447f4">endforeach</a> = htmlspecialchars($article['content'])</td></tr>
-<tr class="separator:a67b0d7e376531b87b620f355467447f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a025e022c5fb2e70111d1889f0e66e433" id="r_a025e022c5fb2e70111d1889f0e66e433"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a025e022c5fb2e70111d1889f0e66e433">$priceOptions</a></td></tr>
+<tr class="separator:a025e022c5fb2e70111d1889f0e66e433"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff4efc40282d274c75715fc00a9e9bb8" id="r_aff4efc40282d274c75715fc00a9e9bb8"><td class="memItemLeft" align="right" valign="top">foreach($priceOptions as $range=&gt; $label)($range, $_GET['price'] ??[]) ? 'checked'&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aff4efc40282d274c75715fc00a9e9bb8">endforeach</a> = $label</td></tr>
+<tr class="separator:aff4efc40282d274c75715fc00a9e9bb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="a67b0d7e376531b87b620f355467447f4" name="a67b0d7e376531b87b620f355467447f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67b0d7e376531b87b620f355467447f4">&#9670;&#160;</a></span>endforeach</h2>
+<a id="a025e022c5fb2e70111d1889f0e66e433" name="a025e022c5fb2e70111d1889f0e66e433"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a025e022c5fb2e70111d1889f0e66e433">&#9670;&#160;</a></span>$priceOptions</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">foreach ($articles as $article) ($article['title']) ?&gt;&lt;/strong&gt; &lt;p&gt;&lt;? endforeach = htmlspecialchars($article['content'])</td>
+          <td class="memname">$priceOptions</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= [</div>
+<div class="line">                <span class="stringliteral">&#39;0-10&#39;</span> =&gt; <span class="stringliteral">&#39;Moins de 10 €&#39;</span>,</div>
+<div class="line">                <span class="stringliteral">&#39;10-20&#39;</span> =&gt; <span class="stringliteral">&#39;10 à 20 €&#39;</span>,</div>
+<div class="line">                <span class="stringliteral">&#39;20-999&#39;</span> =&gt; <span class="stringliteral">&#39;Plus de 20 €&#39;</span></div>
+<div class="line">            ]</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aff4efc40282d274c75715fc00a9e9bb8" name="aff4efc40282d274c75715fc00a9e9bb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff4efc40282d274c75715fc00a9e9bb8">&#9670;&#160;</a></span>endforeach</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">foreach ( $priceOptions as $range=&gt; $label) ( $range, $_GET[ 'price'] ??[]) ? 'checked' endforeach = $label</td>
         </tr>
       </table>
 </div><div class="memdoc">
